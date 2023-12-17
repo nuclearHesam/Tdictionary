@@ -1,0 +1,107 @@
+﻿<Window x:Class="tdic.WordsPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:tdic"
+        mc:Ignorable="d"
+        Title="Words " Height="600" Width="600">
+    <!--  Resources  -->
+    <Window.Resources>
+        <FontFamily x:Key="Vazir">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
+    </Window.Resources>
+    <!--  Content  -->
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <!--  ListBox  -->
+        <ListBox x:Name="Words_lbx" 
+                 Background="WhiteSmoke"
+                 FontFamily="{StaticResource Vazir}">
+        </ListBox>
+         
+        <!--  listbox Count  -->
+        <Label Content="Count"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Bottom"
+               FontFamily="{StaticResource Vazir}"/>
+
+         <!-- Search & Word  -->
+        <StackPanel Grid.Row="1" Margin="0 10 0 0">
+            
+            <!--  Search  -->
+            <GroupBox Header="Search"
+                      FontSize="15"
+                      Padding="10"
+                      FontFamily="{StaticResource Vazir}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <!--  Word txt  -->
+                    <TextBox x:Name="txt_Search"
+                             FontSize="17"
+                             MaxLength="20">
+
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TextBox">
+                                            <Border Background="{TemplateBinding Background}"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    CornerRadius="5">
+                                                <ScrollViewer x:Name="PART_ContentHost"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    
+                    <!--  Part Of Speech  -->
+                    <ComboBox x:Name="txt_Pos" 
+                              BorderThickness="0.6"
+                              Grid.Column="1">
+                        <ComboBoxItem>
+                            pronoun
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            verb
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            noun
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            adjective
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            adverb
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            preposition
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            conjunction
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            interjection
+                        </ComboBoxItem>
+                    </ComboBox>
+
+                </Grid>
+            </GroupBox>
+        </StackPanel>
+
+
+        
+    </Grid>
+</Window>

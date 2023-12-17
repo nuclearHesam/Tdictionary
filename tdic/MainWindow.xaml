@@ -1,0 +1,751 @@
+﻿<Window x:Class="tdic.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:tdic"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="630" Width="900" 
+        MinWidth="900" MinHeight="630"
+        Icon="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\Book.png" 
+        Loaded="Window_Loaded">
+
+    <!--  Background  -->
+    <Window.Background>
+        <ImageBrush ImageSource="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\books-background.jpg" />
+    </Window.Background>
+
+    <!--  Respurces  -->
+    <Window.Resources>
+        <FontFamily x:Key="Vazir">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
+        <FontFamily x:Key="Proxima Soft">D:\Study\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-Bold.ttf#Proxima Soft</FontFamily>
+        <FontFamily x:Key="Vroxima">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vroxima-Regular.ttf#Vroxima</FontFamily>
+
+        <Style TargetType="Button">
+            <Style.Setters>
+                <Setter Property="FontFamily" Value="{StaticResource Vazir}"/>
+            </Style.Setters>
+        </Style>
+    </Window.Resources>
+
+    <!--  Contnts  -->
+    <Grid >
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- toolbar  -->
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+
+            <!--  Setting  -->
+            <Button x:Name="Setting_btn" 
+                    Click="Setting_btn_Click" 
+                    Content="Setting" 
+                    FontWeight="Medium">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="ButtonBorder" Padding="5" BorderThickness="1" >
+                                        <StackPanel >
+                                            <Image x:Name="ButtonImage" Source="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\Toolbar\Setting_Preview.png" Width="40" Height="40"/>
+                                            <TextBlock Text="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" Foreground="WhiteSmoke" HorizontalAlignment="Center"  FontSize="15" FontFamily="{StaticResource Vazir}" />
+                                        </StackPanel>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="ButtonImage" Property="Source" Value="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\Toolbar\Setting_Hover.png"/>
+                                            <Setter TargetName="ButtonBorder" Property="BorderThickness" Value="1"/>
+                                            <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="White"/>
+                                            <Setter TargetName="ButtonBorder" Property="CornerRadius"  Value="10" />
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="ButtonBorder" Property="BorderThickness" Value="1"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <!--  Help  -->
+            <Button Content="Help" 
+                    x:Name="Help_btn" 
+                    Click="Help_btn_Click" 
+                    FontWeight="Medium" >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="ButtonBorder" Padding="5" BorderThickness="1" >
+                                        <StackPanel  >
+                                            <Image x:Name="ButtonImage" Source="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\Toolbar\Help_Preview.png" Width="40" Height="40"/>
+                                            <TextBlock Text="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" Foreground="WhiteSmoke" HorizontalAlignment="Center" FontSize="15" FontFamily="{StaticResource Vazir}" x:Name="Help_txb" />
+                                        </StackPanel>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="ButtonImage" Property="Source" Value="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\Toolbar\Help_Hover.png"/>
+                                            <Setter TargetName="ButtonBorder" Property="BorderThickness" Value="1"/>
+                                            <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="White"/>
+                                            <Setter TargetName="ButtonBorder" Property="CornerRadius"  Value="10" />
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="ButtonBorder" Property="BorderThickness" Value="1"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+        </StackPanel>
+
+        <!--  buttons  -->
+        <Grid Grid.Row="1"
+              Margin="20 20 20 20">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!--  Add new Word  -->
+            <Button Content="Add new Word" 
+                    x:Name="Add_new_Word_btn" 
+                    FontSize="25" 
+                    FontWeight="ExtraBlack"
+                    Click="Add_new_Word_btn_Click" 
+                    FontFamily="{StaticResource Vroxima}">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="#EE4B2B"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                        <Setter Property="BorderBrush" Value="#EE4B2B"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <Border CornerRadius="23" Height="45" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                            <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Background" >
+                                                <Setter.Value>
+                                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                                        <GradientStop Color="#880808" Offset="0.0"/>
+                                                        <GradientStop Color="#AA4A44" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Background" Value="#B70F03"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <!--  Words  -->
+            <Button Content="Words" 
+                    x:Name="Words_btn"
+                    FontSize="22" 
+                    FontWeight="Bold" 
+                    Click="Words_btn_Click" 
+                    Grid.Row="1"
+                    FontFamily="{StaticResource Vazir}">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="#FF8C00"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                        <Setter Property="BorderBrush" >
+                            <Setter.Value>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                    <GradientStop Color="#FF8C00" Offset="0.0"/>
+                                    <GradientStop Color="#FFA500" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <Border CornerRadius="23" Height="45" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                            <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Background">
+                                                <Setter.Value>
+                                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                                        <GradientStop Color="#FF8C00" Offset="0.0"/>
+                                                        <GradientStop Color="#FFA500" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Background" Value="#D57333"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <!--  Daily Course  -->
+            <Button Content="Daily Course" 
+                    x:Name="Daily_Course_btn"
+                    FontSize="22" 
+                    FontWeight="Bold" 
+                    Grid.Row="2">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="#FDEE00"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                        <Setter Property="BorderBrush" Value="#FDEE00"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <Border CornerRadius="23" Height="45" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                            <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Background">
+                                                <Setter.Value>
+                                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                                        <GradientStop Color="#CCCC00" Offset="0.0"/>
+                                                        <GradientStop Color="#999900" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Background" Value="#A8910F"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <!--  Daily Practice  -->
+            <Button Content="Daily Practice" 
+                    x:Name="Daily_Practice_btn"
+                    FontSize="22" 
+                    FontWeight="Medium" 
+                    Grid.Row="3">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="#3FFF00"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                        <Setter Property="BorderBrush" Value="#3FFF00"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <Border CornerRadius="23" Height="45" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                            <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Background" >
+                                                <Setter.Value>
+                                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                                        <GradientStop Color="#006400" Offset="0.0"/>
+                                                        <GradientStop Color="#008000" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Background" Value="#63C600"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <!--  Translate  -->
+            <Button Content="Translate" 
+                    x:Name="Translate_btn" 
+                    FontSize="22" 
+                    FontWeight="Medium" 
+                    Grid.Row="4">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="#05D9FF"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                        <Setter Property="BorderBrush" Value="#05D9FF"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <Border CornerRadius="23" Height="45" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                            <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Background" Value="#05D9FF"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Background" Value="#02788D"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <!--  Image Gallery  -->
+            <Button Content="Image Gallery" 
+                    x:Name="Image_Gallery_btn"
+                    FontSize="22" 
+                    FontWeight="Medium"
+                    Grid.Row="5">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="#9D00FF"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                        <Setter Property="BorderBrush" Value="#9D00FF"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <Border CornerRadius="23" Height="45" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                            <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Background" Value="#9D00FF"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Background" Value="#57008D"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+        </Grid>
+
+        <!--  Words Search  -->
+        <StackPanel  Grid.Column="1" Grid.Row="1">
+
+            <!--  background  -->
+            <StackPanel.Background>
+                <ImageBrush ImageSource="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\Books_Elemente_background.jpg"/>
+            </StackPanel.Background>
+
+            <!--  RadioButtons  -->
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <!--  PRONOUN  -->
+                <RadioButton Content="PRONOUN " x:Name="PRONOUN_rbt" Foreground="Black" FontFamily="{StaticResource Vazir}" FontSize="12" Checked="PRONOUN_rbt_Checked" Margin="20 0 0 0">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <RadioButton Content="ADVERB" x:Name="ADVERB_rbt" Foreground="Black" FontFamily="{StaticResource Vazir}" FontSize="12" Grid.Column="1" Checked="PRONOUN_rbt_Checked">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <RadioButton Content="VERB" x:Name="VERB_rbt" Foreground="Black" Margin="20 0 0 0" FontFamily="{StaticResource Vazir}" FontSize="12" Grid.Column="0" Grid.Row="1" Checked="PRONOUN_rbt_Checked">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <RadioButton Content="PREPOSITION" x:Name="PREPOSITION_rbt" Foreground="Black" FontFamily="{StaticResource Vazir}" FontSize="12"  Grid.Column="1" Grid.Row="1" Checked="PRONOUN_rbt_Checked">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <RadioButton Content="NOUN" x:Name="NOUN_rbt" Foreground="Black" Margin="20 0 0 0" FontFamily="{StaticResource Vazir}" FontSize="12" Grid.Column="0" Grid.Row="2" Checked="PRONOUN_rbt_Checked">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <RadioButton Content="CONJUNCTION" x:Name="CONJUNCTION_rbt" Foreground="Black" FontFamily="{StaticResource Vazir}" FontSize="12" Grid.Column="1" Grid.Row="2" Checked="PRONOUN_rbt_Checked">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <RadioButton Content="AJECTIVE" x:Name="ADJECTIVE_rbt" Foreground="Black" Margin="20 0 0 0" FontFamily="{StaticResource Vazir}" FontSize="12" Grid.Column="0" Grid.Row="3" Checked="PRONOUN_rbt_Checked">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <RadioButton Content="INTERJECTION" x:Name="INTERJECTION_rbt" Foreground="Black" FontFamily="{StaticResource Vazir}" FontSize="12" Grid.Column="1" Grid.Row="3" Checked="PRONOUN_rbt_Checked">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+            </Grid>
+
+            <!--  listBox  -->
+            <Grid Margin="15 0 15 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="1.1*"/>
+                </Grid.ColumnDefinitions>
+                <!--  listBox  -->
+                <ListBox Margin="25 0 5 0 " Height="250" x:Name="Words_lbx" SelectionChanged="Words_lbx_SelectionChanged"
+                             MouseDoubleClick="Words_lbx_MouseDoubleClick">
+                    <ListBox.Effect>
+                        <DropShadowEffect Color="Black" Direction="320" ShadowDepth="5" Opacity="0.5"/>
+                    </ListBox.Effect>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding WordID}" Margin="5" Visibility="Collapsed"/>
+                                <TextBlock Text="{Binding English}" Margin="5"/>
+                                <TextBlock Text="{Binding Persian}" Margin="5" Visibility="Collapsed"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <!--  treeview  -->
+                <TreeView Margin="5 0 25 0" 
+                              x:Name="Word_trw" 
+                              Grid.Column="1" 
+                              Opacity="90"
+                              MaxHeight="250"
+                              MaxWidth="191" >
+                    <TreeView.Effect>
+                        <DropShadowEffect Color="Black" Direction="320" ShadowDepth="5" Opacity="0.5"/>
+                    </TreeView.Effect>
+                </TreeView>
+            </Grid>
+
+            <!--  Words  -->
+            <StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Style.Setters>
+                            <Setter Property="FontFamily" Value="{StaticResource Vazir}"/>
+                            <Setter Property="FontSize" Value="20"/>
+                        </Style.Setters>
+                    </Style>
+                </StackPanel.Resources>
+
+                <!--  row 1  -->
+                <StackPanel Orientation="Horizontal">
+                    <!--  A  -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="a" Click="Hyperlink_Click">
+                            <Run Text="Aa" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!--  B  -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="b"  Click="Hyperlink_Click">
+                            <Run Text="Bb" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!--  C  -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="c" Click="Hyperlink_Click">
+                            <Run Text="Cc" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!--  E  -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="e" Click="Hyperlink_Click">
+                            <Run Text="Ee" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!--  F  -->
+                    <TextBlock >
+                        <Hyperlink NavigateUri="f" Click="Hyperlink_Click">
+                            <Run Text="Ff" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- G -->
+                    <TextBlock >
+                        <Hyperlink NavigateUri="g" Click="Hyperlink_Click">
+                            <Run Text="Gg" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- H -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="h" Click="Hyperlink_Click">
+                            <Run Text="Hh" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- I -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="i" Click="Hyperlink_Click">
+                            <Run Text="Ii" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- J -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="j" Click="Hyperlink_Click">
+                            <Run Text="Jj" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- K -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="k" Click="Hyperlink_Click">
+                            <Run Text="Kk" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- L -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="l" Click="Hyperlink_Click">
+                            <Run Text="Ll" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- M -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="m" Click="Hyperlink_Click">
+                            <Run Text="Mm" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- N -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="n" Click="Hyperlink_Click">
+                            <Run Text="Nn" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- O -->
+                    <TextBlock >
+                        <Hyperlink NavigateUri="o" Click="Hyperlink_Click">
+                            <Run Text="Oo" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- P -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="p" Click="Hyperlink_Click">
+                            <Run Text="Pp" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- Q -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="q" Click="Hyperlink_Click">
+                            <Run Text="Qq" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                </StackPanel>
+                <!--  row 2  -->
+                <StackPanel Orientation="Horizontal">
+
+                    <!-- R -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="r" Click="Hyperlink_Click">
+                            <Run Text="Rr" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- S -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="s" Click="Hyperlink_Click">
+                            <Run Text="Ss" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!--  T  -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="t" Click="Hyperlink_Click">
+                            <Run Text="Tt" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- U -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="u" Click="Hyperlink_Click">
+                            <Run Text="Uu" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- V -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="v" Click="Hyperlink_Click">
+                            <Run Text="Vv" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- W -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="w" Click="Hyperlink_Click">
+                            <Run Text="Ww" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- X -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="x" Click="Hyperlink_Click">
+                            <Run Text="Xx" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- Y -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="y" Click="Hyperlink_Click">
+                            <Run Text="Yy" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- Z -->
+                    <TextBlock>
+                        <Hyperlink NavigateUri="z" Click="Hyperlink_Click">
+                            <Run Text="Zz" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                </StackPanel>
+            </StackPanel>
+
+            <!--  Search  -->
+            <StackPanel Margin="40 10 0 0" Orientation="Horizontal"
+                            HorizontalAlignment="Left">
+
+                <TextBlock Text="Serach:" 
+                               Foreground="White" 
+                               FontFamily="{StaticResource Vazir}" 
+                               FontSize="22" 
+                               HorizontalAlignment="Center"
+                               x:Name="Search_txb"
+                               Margin="0 0 10 0"/>
+
+                <TextBox x:Name="txt_Search"
+                             FontFamily="{StaticResource Vazir}" 
+                             FontSize="20"
+                             Width="200"
+                             Height="30"
+                             Margin="0 0 2 0"
+                             Foreground="Black"
+                             TextChanged="txt_Search_TextChanged"
+                             MaxLength="20">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TextBox">
+                                        <Border Background="White"
+                                                    BorderThickness="1"
+                                                    CornerRadius="10">
+                                            <ScrollViewer Margin="4 1 4 1" x:Name="PART_ContentHost"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+
+                <Button x:Name="btn_Reset"
+                            Background="Transparent"
+                            Width="30px"
+                            Height="30" 
+                            BorderThickness="0"
+                            Click="btn_Reset_Click">
+                    <StackPanel >
+                        <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\reset.png"/>
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+
+</Window>
