@@ -8,7 +8,7 @@ using tdic.WordsRepository;
 using WordsDBModelView;
 using WordsListedModelView;
 using System.Windows.Documents;
-using System.Linq;
+using System.Windows.Media;
 
 namespace tdic
 {
@@ -320,6 +320,7 @@ namespace tdic
                 }
                 else if (languageSettings.ButtonsLanguage == "Persian")
                 {
+                    grd_RadioButtons.FlowDirection = FlowDirection.RightToLeft;
                     this.Title = "تی دیکشنری";
                 }
             }
@@ -328,6 +329,9 @@ namespace tdic
             {
                 if (Language == "English")
                 {
+                    INTERJECTION_rbt.FontFamily = ADJECTIVE_rbt.FontFamily = CONJUNCTION_rbt.FontFamily = NOUN_rbt.FontFamily = PREPOSITION_rbt.FontFamily = VERB_rbt.FontFamily = ADVERB_rbt.FontFamily = PRONOUN_rbt.FontFamily = Help_btn.FontFamily = Setting_btn.FontFamily = FindResource("Proxima Medium") as FontFamily;
+                    Image_Gallery_btn.FontFamily = Translate_btn.FontFamily = Daily_Practice_btn.FontFamily = Daily_Course_btn.FontFamily = Words_btn.FontFamily = Add_new_Word_btn.FontFamily = FindResource("Proxima ExtraBold") as FontFamily;
+
                     Setting_btn.Content = "Setting";
                     Help_btn.Content = "Help";
                     Add_new_Word_btn.Content = "Add new Word";
@@ -347,6 +351,9 @@ namespace tdic
                 }
                 else if (languageSettings.ButtonsLanguage == "Persian")
                 {
+                    INTERJECTION_rbt.FontFamily = ADJECTIVE_rbt.FontFamily = CONJUNCTION_rbt.FontFamily = NOUN_rbt.FontFamily = PREPOSITION_rbt.FontFamily = VERB_rbt.FontFamily = ADVERB_rbt.FontFamily = PRONOUN_rbt.FontFamily = Help_btn.FontFamily = Setting_btn.FontFamily = FindResource("Vazir") as FontFamily;
+                    Image_Gallery_btn.FontFamily = Translate_btn.FontFamily = Daily_Practice_btn.FontFamily = Daily_Course_btn.FontFamily = Words_btn.FontFamily = Add_new_Word_btn.FontFamily = FindResource("Vazir Bold") as FontFamily;
+
                     Setting_btn.Content = "تنظیمات";
                     Help_btn.Content = "کمک";
                     Add_new_Word_btn.Content = "افزودن کلمه جدید";
