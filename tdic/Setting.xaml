@@ -29,7 +29,8 @@
         
         <!--  TabControl  -->
         <TabControl Margin="20" 
-                    FontSize="14">
+                    FontSize="14"
+                    x:Name="tbc_TabControl">
             
             <!--  Language  -->
             <TabItem Header="Language" 
@@ -139,6 +140,7 @@
 
                     </GroupBox>
                 </StackPanel>
+                
             </TabItem>
             
             <TabItem Header="Wallpaper" 
@@ -155,7 +157,12 @@
         </TabControl>
         
         <!--  Save button  -->
-        <Button Content="Save" Padding="8" Margin="15 5 15 15" Width="150" FontSize="22" FontFamily="{StaticResource Vazir}" x:Name="Save_setting_btn" Click="Save_setting_btn_Click" >
+        <Button Content="Save" 
+                Padding="8" 
+                Margin="15 5 15 15" 
+                Width="150" FontSize="22" 
+                x:Name="Save_setting_btn" 
+                Click="Save_setting_btn_Click" >
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="Foreground" Value="White"/>

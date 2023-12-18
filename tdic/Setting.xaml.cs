@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Media;
 using tdic.SettingJson;
 
 namespace tdic
@@ -101,21 +102,27 @@ namespace tdic
             {
                 if (Language == "English")
                 {
+                    tbc_TabControl.FontFamily = FindResource("Proxima Medium") as FontFamily;
+
                     this.Title = "Settings";
                     Language_tbi.Header = "Language";
                     Wallpaper_tbi.Header = "Wallpaper";
                     Custom_Language_cbx.Content = "Custom Language";
                     Custom_Language_gbx.Header = "Custom Language";
+                    Theme_tbi.Header = "Theme";
 
                     Main_Language_cmx.SelectedIndex = 1;
                 }
                 else if (languageSettings.ButtonsLanguage == "Persian")
                 {
+                    tbc_TabControl.FontFamily = FindResource("Vazir") as FontFamily;
+
                     this.Title = "تنظیمات";
                     Language_tbi.Header = "زبان";
                     Wallpaper_tbi.Header = "کاغذ دیواری";
                     Custom_Language_cbx.Content = "زبان سفارشی";
                     Custom_Language_gbx.Header = "زبان سفارشی";
+                    Theme_tbi.Header = "زمینه";
 
                     Main_Language_cmx.SelectedIndex = 0;
                 }
@@ -125,12 +132,17 @@ namespace tdic
             {
                 if (Language == "English")
                 {
+                    Save_setting_btn.FontFamily = FindResource("Proxima Medium") as FontFamily;
+
                     Save_setting_btn.Content = "Save";
 
                     Main_Language_cmx.SelectedIndex = 1;
                 }
                 else if (languageSettings.ButtonsLanguage == "Persian")
                 {
+                    Save_setting_btn.FontFamily = FindResource("Vazir") as FontFamily;
+
+
                     Save_setting_btn.Content = "ذخیره";
 
                     Main_Language_cmx.SelectedIndex = 0;
@@ -141,6 +153,9 @@ namespace tdic
             {
                 if (Language == "English")
                 {
+                    MessageBox_Language_txb.FontFamily = Texts_Language_txb.FontFamily = button_Language_txb.FontFamily = Main_Language_txb.FontFamily = FindResource("Proxima Medium") as FontFamily;
+
+
                     Main_Language_txb.Text = "Language:";
                     button_Language_txb.Text = "buttons Language:";
                     Texts_Language_txb.Text = "Texts Language:";
@@ -150,6 +165,8 @@ namespace tdic
                 }
                 else if (languageSettings.TextBlockLanguage == "Persian")
                 {
+                    MessageBox_Language_txb.FontFamily = Texts_Language_txb.FontFamily = button_Language_txb.FontFamily = Main_Language_txb.FontFamily = FindResource("Vazir") as FontFamily;
+
                     Main_Language_txb.Text = "زبان:";
                     button_Language_txb.Text = "زبان دکمه ها:";
                     Texts_Language_txb.Text = "زبان متون:";
