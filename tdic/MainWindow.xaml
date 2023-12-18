@@ -38,15 +38,20 @@
         </Grid.RowDefinitions>
 
         <!-- toolbar  -->
-        <StackPanel Orientation="Horizontal"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
+        <Grid VerticalAlignment="Center"
+              HorizontalAlignment="Center">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
             <!--  Setting  -->
             <Button x:Name="Setting_btn" 
                     Click="Setting_btn_Click" 
                     Content="Setting" 
-                    FontWeight="Medium">
+                    FontWeight="Medium"
+                    Margin="0 0 5 0">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Template">
@@ -80,7 +85,8 @@
             <Button Content="Help" 
                     x:Name="Help_btn" 
                     Click="Help_btn_Click" 
-                    FontWeight="Medium" >
+                    FontWeight="Medium"
+                    Grid.Column="1">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Template">
@@ -110,7 +116,7 @@
                 </Button.Style>
             </Button>
 
-        </StackPanel>
+        </Grid>
 
         <!--  buttons  -->
         <Grid Grid.Row="1"
@@ -132,10 +138,10 @@
 
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Foreground" Value="#EE4B2B"/>
+                        <Setter Property="Foreground" Value="#DC143C"/>
                         <Setter Property="Background" Value="Transparent"/>
                         <Setter Property="BorderThickness" Value="2"/>
-                        <Setter Property="BorderBrush" Value="#EE4B2B"/>
+                        <Setter Property="BorderBrush" Value="#DC143C"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="Button">
@@ -150,9 +156,9 @@
                                             <Setter Property="Background" >
                                                 <Setter.Value>
                                                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                                        <GradientStop Color="#880808" Offset="0.0"/>
-                                                        <GradientStop Color="#AA4A44" Offset="1"/>
-                                                    </LinearGradientBrush>
+                                                        <GradientStop Color="#8B0000" Offset="0.0"/>
+                                                        <GradientStop Color="#B22222" Offset="1"/>
+                                                    </LinearGradientBrush> 
                                                 </Setter.Value>
                                             </Setter>
                                             <Setter Property="BorderThickness" Value="0"/>
@@ -177,17 +183,10 @@
                     Grid.Row="1">
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Foreground" Value="#FF8C00"/>
+                        <Setter Property="Foreground" Value="#FF7F50"/>
                         <Setter Property="Background" Value="Transparent"/>
                         <Setter Property="BorderThickness" Value="2"/>
-                        <Setter Property="BorderBrush" >
-                            <Setter.Value>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                    <GradientStop Color="#FF8C00" Offset="0.0"/>
-                                    <GradientStop Color="#FFA500" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
+                        <Setter Property="BorderBrush" Value="#FF7F50"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="Button">
@@ -203,8 +202,8 @@
                                                 <Setter.Value>
                                                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                                                         <GradientStop Color="#FF8C00" Offset="0.0"/>
-                                                        <GradientStop Color="#FFA500" Offset="1"/>
-                                                    </LinearGradientBrush>
+                                                        <GradientStop Color="#FF4500" Offset="1"/>
+                                                    </LinearGradientBrush> 
                                                 </Setter.Value>
                                             </Setter>
                                             <Setter Property="BorderThickness" Value="0"/>
@@ -228,10 +227,10 @@
                     Grid.Row="2">
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Foreground" Value="#FDEE00"/>
+                        <Setter Property="Foreground" Value="#FF1493"/>
                         <Setter Property="Background" Value="Transparent"/>
                         <Setter Property="BorderThickness" Value="2"/>
-                        <Setter Property="BorderBrush" Value="#FDEE00"/>
+                        <Setter Property="BorderBrush" Value="#FF1493"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="Button">
@@ -246,8 +245,8 @@
                                             <Setter Property="Background">
                                                 <Setter.Value>
                                                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                                        <GradientStop Color="#CCCC00" Offset="0.0"/>
-                                                        <GradientStop Color="#999900" Offset="1"/>
+                                                        <GradientStop Color="#DB7093" Offset="0.0"/>
+                                                        <GradientStop Color="#C71585" Offset="1"/>
                                                     </LinearGradientBrush>
                                                 </Setter.Value>
                                             </Setter>
@@ -272,10 +271,10 @@
                     Grid.Row="3">
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Foreground" Value="#3FFF00"/>
+                        <Setter Property="Foreground" Value="#2E8B57"/>
                         <Setter Property="Background" Value="Transparent"/>
                         <Setter Property="BorderThickness" Value="2"/>
-                        <Setter Property="BorderBrush" Value="#3FFF00"/>
+                        <Setter Property="BorderBrush" Value="#2E8B57"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="Button">
@@ -299,7 +298,7 @@
                                         </Trigger>
                                         <Trigger Property="IsPressed" Value="True">
                                             <Setter Property="Foreground" Value="White"/>
-                                            <Setter Property="Background" Value="#63C600"/>
+                                            <Setter Property="Background" Value="#556B2F"/>
                                             <Setter Property="BorderThickness" Value="0"/>
                                         </Trigger>
                                     </ControlTemplate.Triggers>
@@ -318,10 +317,10 @@
                     Grid.Row="4">
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Foreground" Value="#05D9FF"/>
+                        <Setter Property="Foreground" Value="#4682B4"/>
                         <Setter Property="Background" Value="Transparent"/>
                         <Setter Property="BorderThickness" Value="2"/>
-                        <Setter Property="BorderBrush" Value="#05D9FF"/>
+                        <Setter Property="BorderBrush" Value="#4682B4"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="Button">
@@ -333,7 +332,14 @@
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
                                             <Setter Property="Foreground" Value="White"/>
-                                            <Setter Property="Background" Value="#05D9FF"/>
+                                            <Setter Property="Background" >
+                                                <Setter.Value>
+                                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                                        <GradientStop Color="#40E0D0" Offset="0.0"/>
+                                                        <GradientStop Color="#00CED1" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
                                             <Setter Property="BorderThickness" Value="0"/>
                                         </Trigger>
                                         <Trigger Property="IsPressed" Value="True">
@@ -357,10 +363,10 @@
                     Grid.Row="5">
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Foreground" Value="#9D00FF"/>
+                        <Setter Property="Foreground" Value="#BA55D3"/>
                         <Setter Property="Background" Value="Transparent"/>
                         <Setter Property="BorderThickness" Value="2"/>
-                        <Setter Property="BorderBrush" Value="#9D00FF"/>
+                        <Setter Property="BorderBrush" Value="#BA55D3"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="Button">
@@ -372,7 +378,14 @@
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
                                             <Setter Property="Foreground" Value="White"/>
-                                            <Setter Property="Background" Value="#9D00FF"/>
+                                            <Setter Property="Background" >
+                                                <Setter.Value>
+                                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                                        <GradientStop Color="#8A2BE2" Offset="0.0"/>
+                                                        <GradientStop Color="#9932CC" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
                                             <Setter Property="BorderThickness" Value="0"/>
                                         </Trigger>
                                         <Trigger Property="IsPressed" Value="True">
@@ -392,152 +405,149 @@
 
         <!--  Words Search  -->
         <Grid Grid.Column="1" Grid.RowSpan="2"
-                     Margin="30 30 30 30" >
-            
+                     Margin="30 30 30 30">
+
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.5*"/>
-                <RowDefinition Height="1.2*"/>
-                <RowDefinition Height="0.24*"/>
-                <RowDefinition Height="0.15*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            
+
             <!--  background  -->
-            <Grid.Background>
+            <Grid.Background >
                 <ImageBrush ImageSource="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\Books_Elemente_background.jpg"/>
             </Grid.Background>
 
             <!--  RadioButtons  -->
             <Grid x:Name="grd_RadioButtons"
-                  Margin="25">
+                  Margin="25 25 25 25">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-                <!--  col1  -->
-                <Grid >
-                    
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-
-                    <!--  PRONOUN  -->
-                    <RadioButton Content="PRONOUN " 
+                <!--  PRONOUN  -->
+                <RadioButton Content="PRONOUN " 
                              x:Name="PRONOUN_rbt" 
                              Foreground="Black" 
                              FontSize="12" 
-                             Checked="PRONOUN_rbt_Checked" >
-                        <RadioButton.LayoutTransform>
-                            <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
-                        </RadioButton.LayoutTransform>
-                    </RadioButton>
+                             Checked="PRONOUN_rbt_Checked" 
+                             VerticalAlignment="Center">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
 
-                    <!--  VERB  -->
-                    <RadioButton Content="VERB" 
+                <!--  VERB  -->
+                <RadioButton Content="VERB" 
                              x:Name="VERB_rbt" 
                              Foreground="Black"
                              FontSize="12" 
                              Grid.Row="1" 
-                             Checked="PRONOUN_rbt_Checked">
-                        <RadioButton.LayoutTransform>
-                            <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
-                        </RadioButton.LayoutTransform>
-                    </RadioButton>
+                             Checked="PRONOUN_rbt_Checked"
+                             VerticalAlignment="Center">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
 
-                    <!--  NOUN  -->
-                    <RadioButton Content="NOUN" 
+                <!--  NOUN  -->
+                <RadioButton Content="NOUN" 
                              x:Name="NOUN_rbt" 
                              Foreground="Black" 
                              FontSize="12" 
                              Grid.Row="2" 
-                             Checked="PRONOUN_rbt_Checked">
-                        <RadioButton.LayoutTransform>
-                            <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
-                        </RadioButton.LayoutTransform>
-                    </RadioButton>
+                             Checked="PRONOUN_rbt_Checked"
+                             VerticalAlignment="Center">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
 
-                    <!--  AJECTIVE  -->
-                    <RadioButton Content="AJECTIVE" 
+                <!--  AJECTIVE  -->
+                <RadioButton Content="AJECTIVE" 
                              x:Name="ADJECTIVE_rbt" 
                              Foreground="Black" 
                              FontSize="12" 
                              Grid.Row="3" 
-                             Checked="PRONOUN_rbt_Checked">
-                        <RadioButton.LayoutTransform>
-                            <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
-                        </RadioButton.LayoutTransform>
-                    </RadioButton>
-                    
-                </Grid>
+                             Checked="PRONOUN_rbt_Checked"
+                             VerticalAlignment="Center">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+
 
                 <!--  col2  -->
-                <Grid Grid.Column="1" >
-                    
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
 
-                    <!--  ADVERB  -->
-                    <RadioButton Content="ADVERB" 
+                <!--  ADVERB  -->
+                <RadioButton Content="ADVERB" 
                              x:Name="ADVERB_rbt" 
                              Foreground="Black" 
                              FontSize="12" 
-                             Checked="PRONOUN_rbt_Checked">
-                        <RadioButton.LayoutTransform>
-                            <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
-                        </RadioButton.LayoutTransform>
-                    </RadioButton>
+                             Checked="PRONOUN_rbt_Checked"
+                             Grid.Column="1"
+                             VerticalAlignment="Center">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
 
-                    <!--  PREPOSITION  -->
-                    <RadioButton Content="PREPOSITION" 
+                <!--  PREPOSITION  -->
+                <RadioButton Content="PREPOSITION" 
                              x:Name="PREPOSITION_rbt" 
                              Foreground="Black" 
                              FontSize="12"
                              Grid.Row="1" 
-                             Checked="PRONOUN_rbt_Checked">
-                        <RadioButton.LayoutTransform>
-                            <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
-                        </RadioButton.LayoutTransform>
-                    </RadioButton>
+                             Checked="PRONOUN_rbt_Checked"
+                             Grid.Column="1"
+                             VerticalAlignment="Center">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
 
-                    <!--  CONJUNCTION  -->
-                    <RadioButton Content="CONJUNCTION" 
+                <!--  CONJUNCTION  -->
+                <RadioButton Content="CONJUNCTION" 
                              x:Name="CONJUNCTION_rbt" 
                              Foreground="Black" 
                              FontSize="12" 
                              Grid.Row="2" 
-                             Checked="PRONOUN_rbt_Checked">
-                        <RadioButton.LayoutTransform>
-                            <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
-                        </RadioButton.LayoutTransform>
-                    </RadioButton>
+                             Checked="PRONOUN_rbt_Checked"
+                             Grid.Column="1"
+                             VerticalAlignment="Center">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
 
-                    <!--  INTERJECTION  -->
-                    <RadioButton Content="INTERJECTION" 
+                <!--  INTERJECTION  -->
+                <RadioButton Content="INTERJECTION" 
                              x:Name="INTERJECTION_rbt"
                              Foreground="Black"
                              FontSize="12"
                              Grid.Row="3" 
-                             Checked="PRONOUN_rbt_Checked">
-                        <RadioButton.LayoutTransform>
-                            <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
-                        </RadioButton.LayoutTransform>
-                    </RadioButton>
-                    
-                </Grid>
-                
+                             Checked="PRONOUN_rbt_Checked"
+                             Grid.Column="1"
+                             VerticalAlignment="Center">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+
             </Grid>
 
             <!--  listBox  -->
             <Grid Grid.Row="1"
                   Margin="25 0 25 25">
-                
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition Width="1.1*"/>
@@ -561,7 +571,7 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                
+
                 <!--  treeview  -->
                 <TreeView Margin="12.5 0 0 0" 
                           x:Name="Word_trw" 
@@ -571,279 +581,273 @@
                         <DropShadowEffect Color="Black" Direction="320" ShadowDepth="5" Opacity="0.5"/>
                     </TreeView.Effect>
                 </TreeView>
+
             </Grid>
 
             <!--  Words  -->
             <Grid Margin="25 0 25 25" 
                 Grid.Row="2">
 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                
+
                 <Grid.Resources>
                     <Style TargetType="TextBlock">
                         <Style.Setters>
                             <Setter Property="FontFamily" Value="{StaticResource Proxima Medium}"/>
-                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontSize" Value="16"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
                         </Style.Setters>
                     </Style>
                 </Grid.Resources>
 
-                <!--  row 1  -->
-                <Grid >
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    
-                    <!--  A  -->
-                    <TextBlock>
+                <!--  A  -->
+                <TextBlock>
                         <Hyperlink NavigateUri="a" Click="Hyperlink_Click">
                             <Run Text="Aa" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!--  B  -->
-                    <TextBlock Grid.Column="1">
+                <!--  B  -->
+                <TextBlock Grid.Column="1">
                         <Hyperlink NavigateUri="b"  Click="Hyperlink_Click">
                             <Run Text="Bb" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!--  C  -->
-                    <TextBlock Grid.Column="2">
+                <!--  C  -->
+                <TextBlock Grid.Column="2">
                         <Hyperlink NavigateUri="c" Click="Hyperlink_Click">
                             <Run Text="Cc" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!--  E  -->
-                    <TextBlock  Grid.Column="3">
+                <!--  E  -->
+                <TextBlock  Grid.Column="3">
                         <Hyperlink NavigateUri="e" Click="Hyperlink_Click">
                             <Run Text="Ee" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!--  F  -->
-                    <TextBlock Grid.Column="4">
+                <!--  F  -->
+                <TextBlock Grid.Column="4">
                         <Hyperlink NavigateUri="f" Click="Hyperlink_Click">
                             <Run Text="Ff" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- G -->
-                    <TextBlock Grid.Column="5">
+                <!-- G -->
+                <TextBlock Grid.Column="5">
                         <Hyperlink NavigateUri="g" Click="Hyperlink_Click">
                             <Run Text="Gg" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- H -->
-                    <TextBlock Grid.Column="6">
+                <!-- H -->
+                <TextBlock Grid.Column="6">
                         <Hyperlink NavigateUri="h" Click="Hyperlink_Click">
                             <Run Text="Hh" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- I -->
-                    <TextBlock Grid.Column="7">
+                <!-- I -->
+                <TextBlock Grid.Column="7">
                         <Hyperlink NavigateUri="i" Click="Hyperlink_Click">
                             <Run Text="Ii" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- J -->
-                    <TextBlock Grid.Column="8">
+                <!-- J -->
+                <TextBlock Grid.Column="8">
                         <Hyperlink NavigateUri="j" Click="Hyperlink_Click">
                             <Run Text="Jj" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- K -->
-                    <TextBlock Grid.Column="9">
+                <!-- K -->
+                <TextBlock Grid.Column="9">
                         <Hyperlink NavigateUri="k" Click="Hyperlink_Click">
                             <Run Text="Kk" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- L -->
-                    <TextBlock Grid.Column="10">
+                <!-- L -->
+                <TextBlock Grid.Column="10">
                         <Hyperlink NavigateUri="l" Click="Hyperlink_Click">
                             <Run Text="Ll" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- M -->
-                    <TextBlock Grid.Column="11">
+                <!-- M -->
+                <TextBlock Grid.Column="11">
                         <Hyperlink NavigateUri="m" Click="Hyperlink_Click">
                             <Run Text="Mm" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- N -->
-                    <TextBlock Grid.Column="12">
+                <!-- N -->
+                <TextBlock Grid.Column="12">
                         <Hyperlink NavigateUri="n" Click="Hyperlink_Click">
                             <Run Text="Nn" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- O -->
-                    <TextBlock Grid.Column="13" >
+                <!-- O -->
+                <TextBlock Grid.Column="13" >
                         <Hyperlink NavigateUri="o" Click="Hyperlink_Click">
                             <Run Text="Oo" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- P -->
-                    <TextBlock Grid.Column="14">
+                <!-- P -->
+                <TextBlock Grid.Column="14">
                         <Hyperlink NavigateUri="p" Click="Hyperlink_Click">
                             <Run Text="Pp" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- Q -->
-                    <TextBlock  Grid.Column="15">
+                <!-- Q -->
+                <TextBlock  Grid.Column="15">
                         <Hyperlink NavigateUri="q" Click="Hyperlink_Click">
                             <Run Text="Qq" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                </Grid>
-                
+
                 <!--  row 2  -->
-                <Grid Grid.Row="1">
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
 
-                    <!-- R -->
-                    <TextBlock>
+                <!-- R -->
+                <TextBlock Grid.Row="1">
                         <Hyperlink NavigateUri="r" Click="Hyperlink_Click">
                             <Run Text="Rr" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- S -->
-                    <TextBlock Grid.Column="1">
+                <!-- S -->
+                <TextBlock Grid.Column="1"
+                            Grid.Row="1">
                         <Hyperlink NavigateUri="s" Click="Hyperlink_Click">
                             <Run Text="Ss" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!--  T  -->
-                    <TextBlock Grid.Column="2">
+                <!--  T  -->
+                <TextBlock Grid.Column="2"
+                            Grid.Row="1">
                         <Hyperlink NavigateUri="t" Click="Hyperlink_Click">
                             <Run Text="Tt" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- U -->
-                    <TextBlock Grid.Column="3">
+                <!-- U -->
+                <TextBlock Grid.Column="3"
+                           Grid.Row="1">
                         <Hyperlink NavigateUri="u" Click="Hyperlink_Click">
                             <Run Text="Uu" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- V -->
-                    <TextBlock Grid.Column="4">
+                <!-- V -->
+                <TextBlock Grid.Column="4"
+                           Grid.Row="1">
                         <Hyperlink NavigateUri="v" Click="Hyperlink_Click">
                             <Run Text="Vv" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- W -->
-                    <TextBlock Grid.Column="5">
+                <!-- W -->
+                <TextBlock Grid.Column="5"
+                           Grid.Row="1">
                         <Hyperlink NavigateUri="w" Click="Hyperlink_Click">
                             <Run Text="Ww" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- X -->
-                    <TextBlock Grid.Column="6">
+                <!-- X -->
+                <TextBlock Grid.Column="6"
+                           Grid.Row="1">
                         <Hyperlink NavigateUri="x" Click="Hyperlink_Click">
                             <Run Text="Xx" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- Y -->
-                    <TextBlock Grid.Column="7">
+                <!-- Y -->
+                <TextBlock Grid.Column="7"
+                           Grid.Row="1">
                         <Hyperlink NavigateUri="y" Click="Hyperlink_Click">
                             <Run Text="Yy" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                    <!-- Z -->
-                    <TextBlock Grid.Column="8">
+                <!-- Z -->
+                <TextBlock Grid.Column="8"
+                           Grid.Row="1">
                         <Hyperlink NavigateUri="z" Click="Hyperlink_Click">
                             <Run Text="Zz" />
                         </Hyperlink>
-                    </TextBlock>
+                </TextBlock>
 
-                </Grid>
-                
             </Grid>
 
             <!--  Search  -->
-            <StackPanel Grid.Row="3" 
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Left">
+            <Grid Grid.Row="3" 
+                  Margin="25 0 25 25">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
                 <TextBlock Text="Serach:" 
-                               Foreground="White" 
-                               FontFamily="{StaticResource Vazir}" 
-                               FontSize="22" 
-                               HorizontalAlignment="Center"
-                               x:Name="Search_txb"/>
+                           Foreground="White" 
+                           FontSize="22" 
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           x:Name="Search_txb"
+                           Margin="0 0 25 0 "/>
 
                 <TextBox x:Name="txt_Search"
-                             FontFamily="{StaticResource Vazir}" 
-                             FontSize="20"
-                             Foreground="Black"
-                             TextChanged="txt_Search_TextChanged"
-                             MaxLength="20">
+                         FontSize="20"
+                         Foreground="Black"
+                         TextChanged="txt_Search_TextChanged"
+                         MaxLength="20"
+                         Grid.Column="1"
+                         Height="25"
+                         Margin="0 0 25 0">
+
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="TextBox">
                                         <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="2">
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                CornerRadius="2">
                                             <ScrollViewer x:Name="PART_ContentHost"/>
                                         </Border>
                                     </ControlTemplate>
@@ -858,14 +862,15 @@
                             Width="30px"
                             Height="30" 
                             BorderThickness="0"
-                            Click="btn_Reset_Click">
+                            Click="btn_Reset_Click"
+                        Grid.Column="2">
                     <StackPanel >
                         <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\reset.png"/>
                     </StackPanel>
                 </Button>
 
-            </StackPanel>
-        
+            </Grid>
+
         </Grid>
 
     </Grid>

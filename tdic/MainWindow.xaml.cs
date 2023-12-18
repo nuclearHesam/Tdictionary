@@ -377,11 +377,14 @@ namespace tdic
             {
                 if (Language == "English")
                 {
+                    txt_Search.FontFamily = Search_txb.FontFamily = FindResource("Proxima Medium") as FontFamily;
+                    
                     Search_txb.Text = "Search:";
-
                 }
                 else if (languageSettings.TextBlockLanguage == "Persian")
                 {
+                    txt_Search.FontFamily = Search_txb.FontFamily = FindResource("Vazir") as FontFamily;
+
                     Search_txb.Text = "جست و جو:";
                 }
             }
