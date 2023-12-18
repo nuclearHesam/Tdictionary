@@ -9,7 +9,7 @@
         Title="MainWindow" 
         Height="630" Width="850"
         MinHeight="630" MinWidth="850"
-        Icon="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\Book.png" 
+        Icon="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\book-icon.png" 
         Loaded="Window_Loaded">
 
     <!--  Background  -->

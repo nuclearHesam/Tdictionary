@@ -10,8 +10,8 @@
         ResizeMode="NoResize" 
         Icon="D:\Study\MyAPP\Project\tdic\tdic\Images\Setting\setting.ico" 
         Loaded="Window_Loaded">
-    
-    <!--  background  -->
+
+    <!--  image  -->
     <Window.Background>
         <ImageBrush ImageSource="D:\Study\MyAPP\Project\tdic\tdic\Images\Setting\Setting.jpg" />
     </Window.Background>
@@ -28,17 +28,33 @@
     <StackPanel>
         
         <!--  TabControl  -->
-        <TabControl Margin="20" FontFamily="{StaticResource Vazir}" FontSize="14">
+        <TabControl Margin="20" 
+                    FontSize="14">
+            
             <!--  Language  -->
-            <TabItem Header="Language" Padding="6" x:Name="Language_tbi">
+            <TabItem Header="Language" 
+                     Padding="6" 
+                     x:Name="Language_tbi">
+                
                 <!--  Language Elements  -->
                 <StackPanel Margin="15">
+                    
                     <!--  Main Language  -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" 
+                                HorizontalAlignment="Center">
+                        
                         <!--  Language textblock  -->
-                        <TextBlock Text="Language:" FontSize="20" x:Name="Main_Language_txb"/>
+                        <TextBlock Text="Language:" 
+                                   FontSize="20" 
+                                   x:Name="Main_Language_txb"/>
+                        
                         <!--  Language ComboBox  -->
-                        <ComboBox  Margin="10 0 0 0" FontSize="15" Width="100" x:Name="Main_Language_cmx" SelectedIndex="1">
+                        <ComboBox  Margin="10 0 0 0" 
+                                   FontSize="15" 
+                                   Width="100" 
+                                   x:Name="Main_Language_cmx" 
+                                   SelectedIndex="1">
+                            
                             <ComboBoxItem >
                                 Persian
                             </ComboBoxItem>
@@ -46,19 +62,40 @@
                                 English
                             </ComboBoxItem>
                         </ComboBox>
+                        
                     </StackPanel>
+                    
                     <!--  Custom Language CheckBox  -->
-                    <CheckBox Margin="5 15 5 0" Content="Custom Language" x:Name="Custom_Language_cbx" Checked="Custom_Language_cbx_Checked" Unchecked="Custom_Language_cbx_Unchecked"/>
+                    <CheckBox Margin="5 15 5 0"
+                              Content="Custom Language" 
+                              x:Name="Custom_Language_cbx" 
+                              Checked="Custom_Language_cbx_Checked" 
+                              Unchecked="Custom_Language_cbx_Unchecked"/>
+                    
                     <!--  Custom Language  -->
-                    <GroupBox Margin="5 10 5 0" Header="Custom Language" x:Name="Custom_Language_gbx" Visibility="Collapsed"> <!-- Collapsed  -->
+                    <GroupBox Margin="5 10 5 0"
+                              Header="Custom Language" 
+                              x:Name="Custom_Language_gbx" 
+                              Visibility="Collapsed">
+                        
                         <!--  buttons and combo -->
                         <StackPanel  Margin="10">
+                            
                             <!--  Text Language  -->
-                            <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" 
+                                        Margin="5" 
+                                        HorizontalAlignment="Center">
+                                
                                 <!--  Text Language   -->
                                 <TextBlock Text="Texts Language:" FontSize="20" x:Name="Texts_Language_txb"/>
+                                
                                 <!--  Text Language ComboBox  -->
-                                <ComboBox  Margin="10 0 0 0" FontSize="15" Width="100" x:Name="TextBlock_Language_cmx" SelectedIndex="1" >
+                                <ComboBox  Margin="10 0 0 0" 
+                                           FontSize="15" 
+                                           Width="100" 
+                                           x:Name="TextBlock_Language_cmx" 
+                                           SelectedIndex="1" >
+                                    
                                     <ComboBoxItem>
                                         Persian
                                     </ComboBoxItem>
@@ -67,6 +104,7 @@
                                     </ComboBoxItem>
                                 </ComboBox>
                             </StackPanel>
+                            
                             <!--  button Language  -->
                             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
                                 <!--  button Language textblock  -->
@@ -81,7 +119,8 @@
                                     </ComboBoxItem>
                                 </ComboBox>
                             </StackPanel>
-                                                        <!--  MessageBox Language  -->
+                            
+                            <!--  MessageBox Language  -->
                             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
                                 <!--  MessageBox Language textblock  -->
                                 <TextBlock Text="MessageBox Language:" FontSize="20" x:Name="MessageBox_Language_txb"/>
@@ -95,12 +134,24 @@
                                     </ComboBoxItem>
                                 </ComboBox>
                             </StackPanel>
+                        
                         </StackPanel>
 
                     </GroupBox>
                 </StackPanel>
             </TabItem>
-            <TabItem Header="Wallpaper" x:Name="Wallpaper_tbi"></TabItem>
+            
+            <TabItem Header="Wallpaper" 
+                     x:Name="Wallpaper_tbi">
+                
+                
+            </TabItem>
+
+            <TabItem Header="Theme" 
+                     x:Name="Theme_tbi">
+                
+            </TabItem>
+        
         </TabControl>
         
         <!--  Save button  -->
