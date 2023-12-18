@@ -5,18 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tdic"
         mc:Ignorable="d"
-        Title="Help" Height="712" Width="795" MinHeight="712" MinWidth="795" Background="#e5e5e5" Icon="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\Help.ico" Loaded="Window_Loaded">
+        Title="Help" 
+        Height="712" Width="795"
+        MinHeight="712" MinWidth="795" 
+        Background="#e5e5e5" 
+        Icon="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\Help.ico" 
+        Loaded="Window_Loaded">
+
     <Window.Resources>
         <FontFamily x:Key="Vazir">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
+        <FontFamily x:Key="Vazir Bold">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir-Bold.ttf#Vazir</FontFamily>
+        <FontFamily x:Key="Proxima ExtraBold">D:\Study\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-ExtraBold.ttf#Proxima Soft ExtraBold</FontFamily>
+        <FontFamily x:Key="Proxima Medium">D:\Study\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-Medium.ttf#Proxima Soft Medium</FontFamily>
     </Window.Resources>
-    <StackPanel Margin="50" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
-        <TextBlock FontFamily="{StaticResource ResourceKey=Vazir}" FontSize="40" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 20" x:Name="help_header_txb">
+    
+    <StackPanel Margin="50" 
+                Orientation="Vertical" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" >
+        
+        <TextBlock FontSize="40" 
+                   FontWeight="Medium" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   Margin="0 0 0 20" 
+                   x:Name="help_header_txb">
             How can we help you?
         </TextBlock>
-        <TextBlock FontFamily="{StaticResource ResourceKey=Vazir}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="14" Margin="0 0 0 20" x:Name="help_text_txb" >
+        
+        <TextBlock 
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Center" 
+            FontWeight="Bold" 
+            FontSize="14"
+            Margin="0 0 0 20" 
+            x:Name="help_text_txb" >
             Welcome to our dictionary! Here you can translate and define words and phrases as you wish.<LineBreak/>
             Below, find a short guide to using our online dictionary.
         </TextBlock>
+        
         <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -26,54 +53,116 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            
             <!--  map  -->
-            <StackPanel Grid.Row="0" Grid.Column="0" Background="#ffffff" >
+            <StackPanel Grid.Row="0" Grid.Column="0" 
+                        Background="#ffffff" >
+                
                 <StackPanel Margin="30">
-                    <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\map.png" Height="55" Margin="0 0 0 10" />
+                    
+                    <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\map.png" 
+                           Height="55" Margin="0 0 0 10" />
+                    
                     <TextBlock HorizontalAlignment="Center" FontWeight="Medium" FontSize="24" Margin="0 0 0 10" x:Name="map_header_txb">
                         OUR MAIN OFFICE
                     </TextBlock>
-                    <TextBlock HorizontalAlignment="Center"  FontSize="20" Foreground="Black" x:Name="map_text_txb">
+                    
+                    <TextBlock HorizontalAlignment="Center" 
+                               FontSize="20"
+                               Foreground="Black" 
+                               x:Name="map_text_txb">
                         Somewhere on planet earth
                     </TextBlock>
                 </StackPanel>
             </StackPanel>
+            
             <!--   phone -->
-            <StackPanel Grid.Row="0" Grid.Column="1" Background="#ffffff" Margin="20 0 0 0" >
+            <StackPanel Grid.Row="0" 
+                        Grid.Column="1" 
+                        Background="#ffffff"
+                        Margin="20 0 0 0" >
+                
                 <StackPanel Margin="30">
-                    <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\phone.png" Height="55" Margin="0 0 0 10" />
-                    <TextBlock HorizontalAlignment="Center" FontWeight="Medium" FontSize="24" Margin="0 0 0 10" x:Name="phone_header_txb">
+                    
+                    <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\phone.png" 
+                           Height="55" 
+                           Margin="0 0 0 10" />
+
+                    <TextBlock HorizontalAlignment="Center" 
+                               FontWeight="Medium" 
+                               FontSize="24" 
+                               Margin="0 0 0 10" 
+                               x:Name="phone_header_txb">
                         PHONE NUMBER
                     </TextBlock>
-                    <TextBlock HorizontalAlignment="Center"  FontSize="20" Foreground="Black" >
+                    
+                    <TextBlock HorizontalAlignment="Center" 
+                               FontSize="20" 
+                               Foreground="Black" 
+                               x:Name="txb_Phone">
                         +98 913 506 8551
                     </TextBlock>
+                    
                 </StackPanel>
+                
             </StackPanel>
+            
             <!--   telegram -->
-            <StackPanel Grid.Row="1" Grid.Column="0" Background="#ffffff" Margin="0 20 0 0" >
+            <StackPanel Grid.Row="1" Grid.Column="0" 
+                        Background="#ffffff" 
+                        Margin="0 20 0 0" >
+                
                 <StackPanel Margin="30">
+                    
                     <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\telegram.png" Height="55" Margin="0 0 0 10" />
-                    <TextBlock HorizontalAlignment="Center" FontWeight="Medium" FontSize="24" Margin="0 0 0 10" x:Name="telegram_header_txb">
+                    
+                    <TextBlock HorizontalAlignment="Center" 
+                               FontWeight="Medium" 
+                               FontSize="24" 
+                               Margin="0 0 0 10" 
+                               x:Name="telegram_header_txb">
                         Telegram
                     </TextBlock>
-                    <TextBlock HorizontalAlignment="Center"  FontSize="20" Foreground="Black" >
+                    
+                    <TextBlock HorizontalAlignment="Center" 
+                               FontSize="20"
+                               Foreground="Black"
+                               x:Name="txb_Telegram">
                         @nuclearHesam
                     </TextBlock>
                 </StackPanel>
             </StackPanel>
+            
             <!--   email -->
-            <StackPanel Grid.Row="1" Grid.Column="1" Background="#ffffff" Margin="20 20 0 0" >
+            <StackPanel Grid.Row="1" Grid.Column="1" 
+                        Background="#ffffff" 
+                        Margin="20 20 0 0" >
+                
                 <StackPanel Margin="30">
+                    
                     <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\gmail.png" Height="55" Margin="0 0 0 10" />
-                    <TextBlock HorizontalAlignment="Center" FontWeight="Medium" FontSize="24" Margin="0 0 0 10" x:Name="email_header_txb">
+                    
+                    <TextBlock HorizontalAlignment="Center" 
+                               FontWeight="Medium" 
+                               FontSize="24"
+                               Margin="0 0 0 10" 
+                               x:Name="email_header_txb">
                         Email
                     </TextBlock>
-                    <TextBlock HorizontalAlignment="Center"  FontSize="20" Foreground="Black" >
+                    
+                    <TextBlock HorizontalAlignment="Center" 
+                               FontSize="20" 
+                               Foreground="Black"
+                               x:Name="txb_Email">
                         hesoyam.h.0913@gmail.com
                     </TextBlock>
+                    
                 </StackPanel>
+                
             </StackPanel>
+            
         </Grid>
+        
     </StackPanel>
+
 </Window>

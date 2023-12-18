@@ -19,8 +19,6 @@
     <!--  Font  -->
     <Window.Resources>
         <FontFamily x:Key="Vazir">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
-        <FontFamily x:Key="Vazir Bold">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir-Bold.ttf#Vazir</FontFamily>
-        <FontFamily x:Key="Proxima ExtraBold">D:\Study\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-ExtraBold.ttf#Proxima Soft ExtraBold</FontFamily>
         <FontFamily x:Key="Proxima Medium">D:\Study\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-Medium.ttf#Proxima Soft Medium</FontFamily>
     </Window.Resources>
     

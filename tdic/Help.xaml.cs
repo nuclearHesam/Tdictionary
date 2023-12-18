@@ -1,5 +1,5 @@
-﻿
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Media;
 using tdic.SettingJson;
 
 namespace tdic
@@ -16,7 +16,7 @@ namespace tdic
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _SetLanaguageSetting(); 
+            _SetLanaguageSetting();
         }
 
         void _ChangeLanguageSetting(LanguageSettings languageSettings)
@@ -57,13 +57,16 @@ namespace tdic
                 {
 
                 }
-                    
+
             }
 
             void _TextBlockLanguage(string Language)
             {
                 if (Language == "English")
                 {
+                    email_header_txb.FontFamily = telegram_header_txb.FontFamily = telegram_header_txb.FontFamily = phone_header_txb.FontFamily = map_header_txb.FontFamily = help_header_txb.FontFamily = FindResource("Proxima ExtraBold") as FontFamily;
+                    txb_Email.FontFamily = txb_Telegram.FontFamily = txb_Phone.FontFamily = map_text_txb.FontFamily = help_text_txb.FontFamily = help_text_txb.FontFamily = FindResource("Proxima Medium") as FontFamily;
+
                     help_header_txb.Text = "How can we help you?";
                     help_text_txb.FlowDirection = FlowDirection.LeftToRight;
                     help_text_txb.Text = "Welcome to our dictionary! Here you can translate and define words and phrases as you wish.\nBelow, find a short guide to using our online dictionary.";
@@ -75,9 +78,12 @@ namespace tdic
                 }
                 else if (languageSettings.TextBlockLanguage == "Persian")
                 {
+                    email_header_txb.FontFamily = telegram_header_txb.FontFamily = telegram_header_txb.FontFamily = phone_header_txb.FontFamily = map_header_txb.FontFamily = help_header_txb.FontFamily = FindResource("Vazir Bold") as FontFamily;
+                    txb_Email.FontFamily = txb_Telegram.FontFamily = txb_Phone.FontFamily = map_text_txb.FontFamily = help_text_txb.FontFamily = help_text_txb.FontFamily = FindResource("Vazir") as FontFamily;
+
                     help_header_txb.Text = "چگونه ما میتوانیم به شما کمک کنیم؟";
                     help_text_txb.FlowDirection = FlowDirection.RightToLeft;
-                    help_text_txb.Text = "به فرهنگ لغت ما خوش آمدید! در اینجا می توانید کلمات و عبارات را به دلخواه ترجمه و تعریف کنید.\nدر زیر، راهنمای کوتاهی برای استفاده از فرهنگ لغت آنلاین ما پیدا کنید.";
+                    help_text_txb.Text = "به فرهنگ لغت ما خوش آمدید! در اینجا می توانید کلمات و عبارات را به دلخواه ترجمه و تعریف کنید.\nدر قسمت پایین، راهنمای کوتاهی برای استفاده از فرهنگ لغت آنلاین ما پیدا کنید.";
                     map_header_txb.Text = "دفتر اصلی ما";
                     map_text_txb.Text = "جایی در سیاره زمین";
                     phone_header_txb.Text = "شماره تلفن";
