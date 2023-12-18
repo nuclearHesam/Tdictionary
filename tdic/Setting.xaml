@@ -5,17 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tdic"
         mc:Ignorable="d"
-        Title="Setting"  Height="518" Width="560" ResizeMode="NoResize" Icon="D:\Study\MyAPP\Project\tdic\tdic\Images\Setting\setting.ico" Loaded="Window_Loaded">
-    <!--  background image  -->
+        Title="Setting"
+        Height="518" Width="560" 
+        ResizeMode="NoResize" 
+        Icon="D:\Study\MyAPP\Project\tdic\tdic\Images\Setting\setting.ico" 
+        Loaded="Window_Loaded">
+    
+    <!--  background  -->
     <Window.Background>
         <ImageBrush ImageSource="D:\Study\MyAPP\Project\tdic\tdic\Images\Setting\Setting.jpg" />
     </Window.Background>
+    
     <!--  Font  -->
     <Window.Resources>
         <FontFamily x:Key="Vazir">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
+        <FontFamily x:Key="Vazir Bold">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir-Bold.ttf#Vazir</FontFamily>
+        <FontFamily x:Key="Proxima ExtraBold">D:\Study\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-ExtraBold.ttf#Proxima Soft ExtraBold</FontFamily>
+        <FontFamily x:Key="Proxima Medium">D:\Study\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-Medium.ttf#Proxima Soft Medium</FontFamily>
     </Window.Resources>
-    <!--  Elements  -->
+    
+    <!--  Content  -->
     <StackPanel>
+        
         <!--  TabControl  -->
         <TabControl Margin="20" FontFamily="{StaticResource Vazir}" FontSize="14">
             <!--  Language  -->
@@ -91,6 +102,7 @@
             </TabItem>
             <TabItem Header="Wallpaper" x:Name="Wallpaper_tbi"></TabItem>
         </TabControl>
+        
         <!--  Save button  -->
         <Button Content="Save" Padding="8" Margin="15 5 15 15" Width="150" FontSize="22" FontFamily="{StaticResource Vazir}" x:Name="Save_setting_btn" Click="Save_setting_btn_Click" >
             <Button.Style>
