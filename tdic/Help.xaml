@@ -59,7 +59,7 @@
                         Background="#ffffff" >
                 
                 <StackPanel Margin="30">
-                    
+
                     <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\map.png" 
                            Height="55" Margin="0 0 0 10" />
                     
@@ -114,7 +114,8 @@
                 
                 <StackPanel Margin="30">
                     
-                    <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\telegram.png" Height="55" Margin="0 0 0 10" />
+                    <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\telegram.png" 
+                           Height="55" Margin="0 0 0 10" />
                     
                     <TextBlock HorizontalAlignment="Center" 
                                FontWeight="Medium" 
@@ -140,7 +141,8 @@
                 
                 <StackPanel Margin="30">
                     
-                    <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\gmail.png" Height="55" Margin="0 0 0 10" />
+                    <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\gmail.png" 
+                           Height="55" Margin="0 0 0 10" />
                     
                     <TextBlock HorizontalAlignment="Center" 
                                FontWeight="Medium" 
