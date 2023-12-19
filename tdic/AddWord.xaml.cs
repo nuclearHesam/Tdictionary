@@ -813,6 +813,8 @@ namespace tdic
             {
                 if (Language == "English")
                 {
+                    Save_btn.FontFamily = btnReset.FontFamily = next_definition_btn.FontFamily = back_definition_btn.FontFamily = FindResource("Proxima Medium") as FontFamily;
+
                     back_definition_btn.Content = "< Previous";
                     next_definition_btn.Content = "Next >";
                     btnReset.Content = "Reset";
@@ -820,6 +822,8 @@ namespace tdic
                 }
                 else if (languageSettings.ButtonsLanguage == "Persian")
                 {
+                    Save_btn.FontFamily = btnReset.FontFamily = next_definition_btn.FontFamily = back_definition_btn.FontFamily = FindResource("Vazir") as FontFamily;
+
                     back_definition_btn.Content = "< قبلی";
                     next_definition_btn.Content = "بعدی >";
                     btnReset.Content = "بازنشانی";
@@ -831,10 +835,14 @@ namespace tdic
             {
                 if (Language == "English")
                 {
+                    Phonetics_gbx.FontFamily = ca_txt.FontFamily = uk_txt.FontFamily = us_txt.FontFamily = word_Persian_txt.FontFamily = word_English_txt.FontFamily = example_txt.FontFamily = Definition_txt.FontFamily = Meanings_gbx.FontFamily = DefinitionCount_txt.FontFamily = pos_txb.FontFamily  = FindResource("Proxima Medium") as FontFamily;
+
                     pos_txb.Text = "PartOfSpeech:";
                 }
                 else if (languageSettings.TextBlockLanguage == "Persian")
                 {
+                    Phonetics_gbx.FontFamily = ca_txt.FontFamily = uk_txt.FontFamily = us_txt.FontFamily = word_Persian_txt.FontFamily = word_English_txt.FontFamily = example_txt.FontFamily = Definition_txt.FontFamily = Meanings_gbx.FontFamily = DefinitionCount_txt.FontFamily = pos_txb.FontFamily = FindResource("Vazir") as FontFamily;
+
                     pos_txb.Text = "دستور زبان:";
                 }
             }

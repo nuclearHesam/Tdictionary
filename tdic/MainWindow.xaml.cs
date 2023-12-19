@@ -316,6 +316,7 @@ namespace tdic
             {
                 if (Language == "English")
                 {
+                    grd_RadioButtons.FlowDirection = FlowDirection.LeftToRight;
                     this.Title = "TDictionary";
                 }
                 else if (languageSettings.ButtonsLanguage == "Persian")
