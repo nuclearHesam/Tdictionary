@@ -23,5 +23,30 @@ namespace tdic
         {
             InitializeComponent();
         }
+
+        private void btn_Reset_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+
+        }
+
+        private void Stars_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Delete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Edit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

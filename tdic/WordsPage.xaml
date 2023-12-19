@@ -5,33 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tdic"
         mc:Ignorable="d"
-        Title="Words " Height="600" Width="600">
+        Title="Words " 
+        Height="650" Width="600"
+        MinHeight="650" MinWidth="600">
+
     <!--  Resources  -->
     <Window.Resources>
         <FontFamily x:Key="Vazir">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
+
+        <Style x:Key="Stars" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="Gold"/>
+            <Setter Property="FontSize" Value="19"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <EventSetter Event="Click" Handler="Stars_Click"/>
+        </Style>
+
     </Window.Resources>
+
     <!--  Content  -->
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <!--  ListBox  -->
         <ListBox x:Name="Words_lbx" 
                  Background="WhiteSmoke"
                  FontFamily="{StaticResource Vazir}">
         </ListBox>
-         
+
         <!--  listbox Count  -->
         <Label Content="Count"
                HorizontalAlignment="Right"
                VerticalAlignment="Bottom"
                FontFamily="{StaticResource Vazir}"/>
 
-         <!-- Search & Word  -->
+        <!-- Search & Word  -->
         <StackPanel Grid.Row="1" Margin="0 10 0 0">
-            
+
             <!--  Search  -->
             <GroupBox Header="Search"
                       FontSize="15"
@@ -44,6 +59,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+
                     <!--  Word txt  -->
                     <TextBox x:Name="txt_Search"
                              FontSize="17"
@@ -66,7 +82,7 @@
                             </Style>
                         </TextBox.Style>
                     </TextBox>
-                    
+
                     <!--  Part Of Speech  -->
                     <ComboBox x:Name="txt_Pos" 
                               BorderThickness="0.6"
@@ -97,11 +113,179 @@
                         </ComboBoxItem>
                     </ComboBox>
 
+
+                    <Button x:Name="btn_Reset"
+                            Background="Transparent"
+                            Width="30"
+                            Height="30" 
+                            BorderThickness="0"
+                            Click="btn_Reset_Click"
+                            Grid.Column="3"
+                            HorizontalAlignment="Left">
+                        <StackPanel >
+                            <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\reset.png"/>
+                        </StackPanel>
+                    </Button>
+
                 </Grid>
+
             </GroupBox>
+
+            <!--  Word  -->
+            <GroupBox Header="Word"
+                      FontSize="15"
+                      Padding="10">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </Grid.Resources>
+
+                    <!--  Word  -->
+                    <TextBlock x:Name="txb_Word"
+                               FontSize="15"
+                               Text="Word"
+                               Margin="5"/>
+
+                    <!--  Translate  -->
+                    <TextBlock x:Name="txb_Translate"
+                               FontSize="15"
+                               Text="Translate"
+                               Grid.Row="1"
+                               Margin="5"/>
+
+                    <!--  Meanings  -->
+                    <TextBlock x:Name="txb_Meanings"
+                               FontSize="15"
+                               Text="Meanings Count"
+                               Grid.Column="1"
+                               Margin="5"/>
+
+                    <!--  definition  -->
+                    <TextBlock x:Name="txb_Definitions"
+                               FontSize="15"
+                               Text="Definitions Count"
+                               Grid.Column="1"
+                               Grid.Row="1"
+                               Margin="5"/>
+
+                    <!--  Phonetics  -->
+                    <TextBlock x:Name="txb_Phonetics"
+                               FontSize="15"
+                               Text="Phonetics Count"
+                               Grid.Column="2"
+                               Margin="5"/>
+
+                    <!--  Images  -->
+                    <TextBlock x:Name="txb_Images"
+                               FontSize="15"
+                               Text="Images Count"
+                               Grid.Column="2"
+                               Grid.Row="1"
+                               Margin="5"/>
+
+                    <!--  stars  -->
+                    <Border BorderThickness="0.3" 
+                            BorderBrush="Black"
+                            Grid.Column="3"
+                            Margin="5 0 5 0">
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <Button x:Name="starone"
+                                Style="{StaticResource Stars}"
+                                Content="☆"/>
+
+                            <Button x:Name="startwo"
+                                Style="{StaticResource Stars}"
+                                Content="☆"/>
+
+                            <Button x:Name="starthree"
+                                Style="{StaticResource Stars}"
+                                Content="☆"/>
+
+                            <Button x:Name="starfour"
+                                Style="{StaticResource Stars}"
+                                Content="☆"/>
+
+                            <Button x:Name="starfive"
+                                Style="{StaticResource Stars}"
+                                Content="☆"/>
+
+                        </StackPanel>
+                    </Border>
+
+                    <!--  Source Url  -->
+                    <TextBlock Grid.Column="3"
+                               Grid.Row="1"
+                               Margin="5"
+                               FontSize="15"
+                               x:Name="txt">
+                        <Hyperlink NavigateUri="{Binding}"
+                                   RequestNavigate="Hyperlink_RequestNavigate">
+                            <Run Text="Source Url"/>
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <!--  Open  -->
+                    <Button Content="Open"
+                            FontSize="22" 
+                            x:Name="btn_Opent" 
+                            Click="btn_Edit_Click" 
+                            Grid.Column="4"
+                            Grid.RowSpan="2"
+                            Margin="5">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Background" Value="#0ba6ff"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Border CornerRadius="5" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                                    <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    
+                                                </Border>
+                                            </Grid>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#24a0ed"/>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="True">
+                                                    <Setter Property="Background" Value="#389bd9"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                </Grid>
+
+            </GroupBox>
+
         </StackPanel>
 
 
-        
+
     </Grid>
 </Window>
