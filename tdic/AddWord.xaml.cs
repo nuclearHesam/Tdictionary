@@ -171,9 +171,12 @@ namespace tdic
             foreach (var meaning1 in word.Meanings)
             {
                 var meaning = meanings.Find(mean => mean.PartOfSpeech == meaning1.PartOfSpeech);
-                foreach (var definition in meaning1.Definitions)
+                if (meaning != null)
                 {
-                    meaning.Definitions.Add(definition);
+                    foreach (var definition in meaning1.Definitions)
+                    {
+                        meaning.Definitions.Add(definition);
+                    }
                 }
             }
 
@@ -835,7 +838,7 @@ namespace tdic
             {
                 if (Language == "English")
                 {
-                    Phonetics_gbx.FontFamily = ca_txt.FontFamily = uk_txt.FontFamily = us_txt.FontFamily = word_Persian_txt.FontFamily = word_English_txt.FontFamily = example_txt.FontFamily = Definition_txt.FontFamily = Meanings_gbx.FontFamily = DefinitionCount_txt.FontFamily = pos_txb.FontFamily  = FindResource("Proxima Medium") as FontFamily;
+                    Phonetics_gbx.FontFamily = ca_txt.FontFamily = uk_txt.FontFamily = us_txt.FontFamily = word_Persian_txt.FontFamily = word_English_txt.FontFamily = example_txt.FontFamily = Definition_txt.FontFamily = Meanings_gbx.FontFamily = DefinitionCount_txt.FontFamily = pos_txb.FontFamily = FindResource("Proxima Medium") as FontFamily;
 
                     pos_txb.Text = "PartOfSpeech:";
                 }
