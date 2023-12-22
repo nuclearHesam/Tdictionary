@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using tdic.DataContext;
+using WordsDBModelView;
 
 namespace tdic
 {
@@ -23,6 +25,17 @@ namespace tdic
         {
             InitializeComponent();
         }
+        List<Words> Words = new();
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            using UnitOfWork db = new();
+
+            Words = db.WordsRepository.ReadWords();
+
+            Words_lbx.ItemsSource = Words;
+        }
+
 
         private void btn_Reset_Click(object sender, RoutedEventArgs e)
         {
@@ -57,6 +70,5 @@ namespace tdic
         private void btn_SortDown_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-    }
+        }    }
 }

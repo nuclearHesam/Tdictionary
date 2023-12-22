@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Words " 
         Height="650" Width="600"
-        MinHeight="650" MinWidth="600">
+        MinHeight="650" MinWidth="600"
+        Loaded="Window_Loaded">
 
     <!--  Resources  -->
     <Window.Resources>
@@ -33,16 +34,44 @@
         </Grid.RowDefinitions>
 
         <!--  ListBox  -->
-        <ListBox x:Name="Words_lbx" 
-                 Background="WhiteSmoke"
-                 FontFamily="{StaticResource Vazir}">
+        <!--<ListBox x:Name="Words_lbx" 
+                 Background="WhiteSmoke">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding WordID}" Margin="5" Visibility="Collapsed"/>
+                        <TextBlock Text="{Binding English}" Margin="5"/>
+                        <TextBlock Text="{Binding Persian}" Margin="5" Visibility="Collapsed"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>-->
+
+        <ListBox x:Name="Words_lbx" Background="WhiteSmoke">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="3"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding WordID}" Margin="5" Visibility="Collapsed"/>
+                        <TextBlock Text="{Binding English}" Margin="5"/>
+                        <TextBlock Text="{Binding Persian}" Margin="5" Visibility="Collapsed"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
+
+
+
 
         <!--  listbox Count  -->
         <Label Content="Count"
                HorizontalAlignment="Right"
                VerticalAlignment="Bottom"
-               FontFamily="{StaticResource Vazir}"/>
+               Margin="0 0 20 0"/>
 
         <!-- Search & Word  -->
         <StackPanel Grid.Row="1" Margin="0 10 0 0">
@@ -50,20 +79,19 @@
             <!--  Search  -->
             <GroupBox Header="Search"
                       FontSize="15"
-                      Padding="10"
-                      FontFamily="{StaticResource Vazir}">
+                      Padding="10">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="224*"/>
+                        <ColumnDefinition Width="165*"/>
+                        <ColumnDefinition Width="115*"/>
                     </Grid.ColumnDefinitions>
 
                     <!--  Word txt  -->
                     <TextBox x:Name="txt_Search"
                              FontSize="17"
-                             MaxLength="20">
+                             MaxLength="20"
+                             Margin="5 0 5 0">
 
                         <TextBox.Style>
                             <Style TargetType="TextBox">
@@ -86,7 +114,8 @@
                     <!--  Part Of Speech  -->
                     <ComboBox x:Name="txt_Pos" 
                               BorderThickness="0.6"
-                              Grid.Column="1">
+                              Grid.Column="1"
+                              Margin="5 0 5 0">
                         <ComboBoxItem>
                             pronoun
                         </ComboBoxItem>
@@ -113,27 +142,11 @@
                         </ComboBoxItem>
                     </ComboBox>
 
-                    <!--  Reset  -->
-                    <Button x:Name="btn_Reset"
-                            Background="Transparent"
-                            Width="30"
-                            Height="30" 
-                            BorderThickness="0"
-                            Click="btn_Reset_Click"
-                            Grid.Column="3"
-                            HorizontalAlignment="Left">
-                        <StackPanel >
-                            <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\reset.png"/>
-                        </StackPanel>
-                    </Button>
 
-                    <!--  Sorting  -->
-                    <Grid Grid.Column="2">
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+                    <!--  Sorting   -->
+                    <StackPanel Grid.Column="2"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center">
 
                         <Button x:Name="btn_SortUP"
                             Background="Transparent"
@@ -141,8 +154,7 @@
                             Height="30" 
                             BorderThickness="0.5"
                             Click="btn_SortUP_Click"
-                            
-                            HorizontalAlignment="Left">
+                                Margin="0 0 2 0">
                             <StackPanel >
                                 <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\WordsPage\sort-up.png"/>
                             </StackPanel>
@@ -154,15 +166,28 @@
                             Height="30" 
                             BorderThickness="0.5"
                             Click="btn_SortDown_Click"
-                            Grid.Column="1"
-                            HorizontalAlignment="Left">
+                                Margin="2 0 2 0">
                             <StackPanel >
                                 <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\WordsPage\sort-down.png"/>
                             </StackPanel>
                         </Button>
 
-                    </Grid>
-                    
+                        <!--  Reset  -->
+                        <Button x:Name="btn_Reset"
+                            Background="Transparent"
+                            Width="30" 
+                            BorderThickness="0.5"
+                            Click="btn_Reset_Click"
+                            Grid.Column="2"
+                            HorizontalAlignment="Center"
+                                Margin="2 0 0 0">
+                            <StackPanel >
+                                <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\reset.png"/>
+                            </StackPanel>
+                        </Button>
+                        
+                    </StackPanel>
+
 
                 </Grid>
 
@@ -171,7 +196,8 @@
             <!--  Word  -->
             <GroupBox Header="Word"
                       FontSize="15"
-                      Padding="10">
+                      Padding="10"
+                      IsEnabled="False">
 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -298,7 +324,7 @@
                                             <Grid>
                                                 <Border CornerRadius="5" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                                                     <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                    
+
                                                 </Border>
                                             </Grid>
                                             <ControlTemplate.Triggers>
