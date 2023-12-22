@@ -113,7 +113,7 @@
                         </ComboBoxItem>
                     </ComboBox>
 
-
+                    <!--  Reset  -->
                     <Button x:Name="btn_Reset"
                             Background="Transparent"
                             Width="30"
@@ -126,6 +126,43 @@
                             <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\reset.png"/>
                         </StackPanel>
                     </Button>
+
+                    <!--  Sorting  -->
+                    <Grid Grid.Column="2">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="btn_SortUP"
+                            Background="Transparent"
+                            Width="30"
+                            Height="30" 
+                            BorderThickness="0.5"
+                            Click="btn_SortUP_Click"
+                            
+                            HorizontalAlignment="Left">
+                            <StackPanel >
+                                <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\WordsPage\sort-up.png"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="btn_SortDown"
+                            Background="Transparent"
+                            Width="30"
+                            Height="30" 
+                            BorderThickness="0.5"
+                            Click="btn_SortDown_Click"
+                            Grid.Column="1"
+                            HorizontalAlignment="Left">
+                            <StackPanel >
+                                <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\WordsPage\sort-down.png"/>
+                            </StackPanel>
+                        </Button>
+
+                    </Grid>
+                    
 
                 </Grid>
 

@@ -48,5 +48,15 @@ namespace tdic
         {
 
         }
+
+        private void btn_SortUP_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_SortDown_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
