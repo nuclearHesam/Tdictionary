@@ -34,7 +34,18 @@ namespace tdic
             Words = db.WordsRepository.ReadWords();
 
             Words_lbx.ItemsSource = Words;
+
+            lbl_Count.Content = Words.Count;
         }
+
+        #region
+
+        private void txt_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        #endregion
 
 
         private void btn_Reset_Click(object sender, RoutedEventArgs e)
@@ -70,5 +81,6 @@ namespace tdic
         private void btn_SortDown_Click(object sender, RoutedEventArgs e)
         {
 
-        }    }
+        }
+    }
 }
