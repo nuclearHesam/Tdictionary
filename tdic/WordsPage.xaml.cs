@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,7 @@ namespace tdic
             lbl_Count.Content = Words.Count;
         }
 
-        #region
+        #region Search Filter Sort
 
         private void txt_Search_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -114,6 +115,26 @@ namespace tdic
             }
         }
 
+        private void btn_SortUP_Click(object sender, RoutedEventArgs e)
+        {
+            ICollectionView view = CollectionViewSource.GetDefaultView(Words_lbx.Items);
+            view.SortDescriptions.Clear();
+            view.SortDescriptions.Add(new SortDescription("English", ListSortDirection.Ascending));
+            
+            btn_SortUP.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            btn_SortDown.Background = new SolidColorBrush(Colors.White);
+        }
+
+        private void btn_SortDown_Click(object sender, RoutedEventArgs e)
+        {
+            ICollectionView view = CollectionViewSource.GetDefaultView(Words_lbx.Items);
+            view.SortDescriptions.Clear();
+            view.SortDescriptions.Add(new SortDescription("English", ListSortDirection.Descending));
+            
+            btn_SortUP.Background = new SolidColorBrush(Colors.White);
+            btn_SortDown.Background = new SolidColorBrush(Colors.WhiteSmoke);
+        }
+
         #endregion
 
 
@@ -142,15 +163,7 @@ namespace tdic
 
         }
 
-        private void btn_SortUP_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void btn_SortDown_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
     }
 }

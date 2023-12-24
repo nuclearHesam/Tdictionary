@@ -67,16 +67,16 @@
                       Padding="10">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="224*"/>
-                        <ColumnDefinition Width="165*"/>
-                        <ColumnDefinition Width="115*"/>
+                        <ColumnDefinition Width="244*"/>
+                        <ColumnDefinition Width="195*"/>
+                        <ColumnDefinition Width="109*"/>
                     </Grid.ColumnDefinitions>
 
                     <!--  Word txt  -->
                     <TextBox x:Name="txt_Search"
                              FontSize="17"
                              MaxLength="20"
-                             Margin="5 0 5 0"
+                             Margin="5,0,5,0"
                              TextChanged="txt_Search_TextChanged">
 
                         <TextBox.Style>
@@ -101,7 +101,7 @@
                     <ComboBox x:Name="txt_Pos" 
                               BorderThickness="0.6"
                               Grid.Column="1"
-                              Margin="5 0 5 0"
+                              Margin="5,0,5,0"
                               SelectionChanged="txt_Pos_SelectionChanged">
                         <ComboBoxItem>
                             pronoun
@@ -172,7 +172,7 @@
                                 <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\reset.png"/>
                             </StackPanel>
                         </Button>
-                        
+
                     </StackPanel>
 
 
