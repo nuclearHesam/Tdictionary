@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using tdic.DataContext;
 using WordsDBModelView;
+using WordsListedModelView;
 
 namespace tdic
 {
@@ -42,7 +44,71 @@ namespace tdic
 
         private void txt_Search_TextChanged(object sender, TextChangedEventArgs e)
         {
+            var filteredWords = Words.FindAll(w=> w.English.Contains(txt_Search.Text.ToLower().Trim())); 
 
+            Words_lbx.ItemsSource = filteredWords;
+        }
+
+        private void txt_Pos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string boxItem = txt_Pos.SelectedItem.ToString().Split(' ')[1];
+            switch (boxItem)
+            {
+                case "pronoun":
+                    {
+                        SetWordByFilter("pronoun");
+                    }
+                    break;
+                case "verb":
+                    {
+                        SetWordByFilter("verb");
+                    }
+                    break;
+                case "noun":
+                    {
+                        SetWordByFilter("noun");
+                    }
+                    break;
+                case "adjective":
+                    {
+                        SetWordByFilter("adjective");
+                    }
+                    break;
+                case "adverb":
+                    {
+                        SetWordByFilter("adverb");
+                    }
+                    break;
+                case "preposition":
+                    {
+                        SetWordByFilter("preposition");
+                    }
+                    break;
+                case "conjunction":
+                    {
+                        SetWordByFilter("conjunction");
+                    }
+                    break;
+                case "interjection":
+                    {
+                        SetWordByFilter("interjection");
+                    }
+                    break;
+                default:
+                    {
+
+                    }
+                    break;
+            }
+
+            void SetWordByFilter(string filter)
+            {
+                using (UnitOfWork db = new())
+                {
+                    var words = db.WordsRepository.ReadWordByFilter(filter);
+                    Words_lbx.ItemsSource = words;
+                }
+            }
         }
 
         #endregion
@@ -82,5 +148,6 @@ namespace tdic
         {
 
         }
+
     }
 }

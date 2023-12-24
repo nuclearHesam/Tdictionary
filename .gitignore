@@ -362,3 +362,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /tdic/Setting.xaml
+/tdic/MainWindow.xaml.cs
