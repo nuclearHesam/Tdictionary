@@ -33,7 +33,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <ListBox x:Name="Words_lbx" Background="WhiteSmoke">
+        <ListBox x:Name="Words_lbx" Background="WhiteSmoke"
+                 SelectionChanged="Words_lbx_SelectionChanged">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="3"/>

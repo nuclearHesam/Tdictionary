@@ -150,6 +150,15 @@ namespace tdic
 
         #endregion
 
+        #region Word
+
+        private void Words_lbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        #endregion
+
         private void BindListBox()
         {
             UnitOfWork db = new();
@@ -160,6 +169,8 @@ namespace tdic
 
             lbl_Count.Content = Words.Count;
         }
+
+
 
 
         private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
@@ -181,7 +192,6 @@ namespace tdic
         {
 
         }
-
 
 
     }
