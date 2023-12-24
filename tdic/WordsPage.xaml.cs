@@ -32,13 +32,7 @@ namespace tdic
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            using UnitOfWork db = new();
-
-            Words = db.WordsRepository.ReadWords();
-
-            Words_lbx.ItemsSource = Words;
-
-            lbl_Count.Content = Words.Count;
+            BindListBox();
         }
 
         #region Search Filter Sort
@@ -135,13 +129,31 @@ namespace tdic
             btn_SortDown.Background = new SolidColorBrush(Colors.WhiteSmoke);
         }
 
-        #endregion
-
-
         private void btn_Reset_Click(object sender, RoutedEventArgs e)
         {
+            ICollectionView view = CollectionViewSource.GetDefaultView(Words_lbx.Items);
+            view.SortDescriptions.Clear();
+            btn_SortUP.Background = new SolidColorBrush(Colors.White);
+            btn_SortDown.Background = new SolidColorBrush(Colors.White);
+            txt_Pos.SelectedItem = null;
+            txt_Search.Text = "";
 
+            BindListBox();
         }
+
+        #endregion
+
+        private void BindListBox()
+        {
+            UnitOfWork db = new();
+
+            Words = db.WordsRepository.ReadWords();
+
+            Words_lbx.ItemsSource = Words;
+
+            lbl_Count.Content = Words.Count;
+        }
+
 
         private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
         {
