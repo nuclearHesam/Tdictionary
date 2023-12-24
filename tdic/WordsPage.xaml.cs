@@ -39,72 +39,79 @@ namespace tdic
 
         private void txt_Search_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var filteredWords = Words.FindAll(w=> w.English.Contains(txt_Search.Text.ToLower().Trim())); 
+            var filteredWords = Words.FindAll(w => w.English.Contains(txt_Search.Text.ToLower().Trim()));
 
             Words_lbx.ItemsSource = filteredWords;
-            lbl_Count.Content= filteredWords.Count;
+            lbl_Count.Content = filteredWords.Count;
         }
 
         private void txt_Pos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string boxItem = txt_Pos.SelectedItem.ToString().Split(' ')[1];
-            switch (boxItem)
+            try
             {
-                case "pronoun":
-                    {
-                        SetWordByFilter("pronoun");
-                    }
-                    break;
-                case "verb":
-                    {
-                        SetWordByFilter("verb");
-                    }
-                    break;
-                case "noun":
-                    {
-                        SetWordByFilter("noun");
-                    }
-                    break;
-                case "adjective":
-                    {
-                        SetWordByFilter("adjective");
-                    }
-                    break;
-                case "adverb":
-                    {
-                        SetWordByFilter("adverb");
-                    }
-                    break;
-                case "preposition":
-                    {
-                        SetWordByFilter("preposition");
-                    }
-                    break;
-                case "conjunction":
-                    {
-                        SetWordByFilter("conjunction");
-                    }
-                    break;
-                case "interjection":
-                    {
-                        SetWordByFilter("interjection");
-                    }
-                    break;
-                default:
-                    {
+                string boxItem = txt_Pos.SelectedItem.ToString().Split(' ')[1];
+                switch (boxItem)
+                {
+                    case "pronoun":
+                        {
+                            SetWordByFilter("pronoun");
+                        }
+                        break;
+                    case "verb":
+                        {
+                            SetWordByFilter("verb");
+                        }
+                        break;
+                    case "noun":
+                        {
+                            SetWordByFilter("noun");
+                        }
+                        break;
+                    case "adjective":
+                        {
+                            SetWordByFilter("adjective");
+                        }
+                        break;
+                    case "adverb":
+                        {
+                            SetWordByFilter("adverb");
+                        }
+                        break;
+                    case "preposition":
+                        {
+                            SetWordByFilter("preposition");
+                        }
+                        break;
+                    case "conjunction":
+                        {
+                            SetWordByFilter("conjunction");
+                        }
+                        break;
+                    case "interjection":
+                        {
+                            SetWordByFilter("interjection");
+                        }
+                        break;
+                    default:
+                        {
 
-                    }
-                    break;
+                        }
+                        break;
+                }
+            }
+            catch
+            {
+
             }
 
             void SetWordByFilter(string filter)
             {
                 using (UnitOfWork db = new())
                 {
-                    var words = db.WordsRepository.ReadWordByFilter(filter);
+                    Words = db.WordsRepository.ReadWordByFilter(filter);
 
-                    lbl_Count.Content = words.Count;
-                    Words_lbx.ItemsSource = words;
+                    lbl_Count.Content = Words.Count;
+                    Words_lbx.ItemsSource = Words;
                 }
             }
         }
@@ -114,7 +121,7 @@ namespace tdic
             ICollectionView view = CollectionViewSource.GetDefaultView(Words_lbx.Items);
             view.SortDescriptions.Clear();
             view.SortDescriptions.Add(new SortDescription("English", ListSortDirection.Ascending));
-            
+
             btn_SortUP.Background = new SolidColorBrush(Colors.WhiteSmoke);
             btn_SortDown.Background = new SolidColorBrush(Colors.White);
         }
@@ -124,7 +131,7 @@ namespace tdic
             ICollectionView view = CollectionViewSource.GetDefaultView(Words_lbx.Items);
             view.SortDescriptions.Clear();
             view.SortDescriptions.Add(new SortDescription("English", ListSortDirection.Descending));
-            
+
             btn_SortUP.Background = new SolidColorBrush(Colors.White);
             btn_SortDown.Background = new SolidColorBrush(Colors.WhiteSmoke);
         }
