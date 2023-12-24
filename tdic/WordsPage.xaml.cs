@@ -47,6 +47,7 @@ namespace tdic
             var filteredWords = Words.FindAll(w=> w.English.Contains(txt_Search.Text.ToLower().Trim())); 
 
             Words_lbx.ItemsSource = filteredWords;
+            lbl_Count.Content= filteredWords.Count;
         }
 
         private void txt_Pos_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -106,6 +107,8 @@ namespace tdic
                 using (UnitOfWork db = new())
                 {
                     var words = db.WordsRepository.ReadWordByFilter(filter);
+
+                    lbl_Count.Content = words.Count;
                     Words_lbx.ItemsSource = words;
                 }
             }
