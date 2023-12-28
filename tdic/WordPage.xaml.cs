@@ -84,7 +84,7 @@ namespace tdic
             {
                 this.Title = word.English;
                 txt_English.Text = word.English;
-                txt_Persian.Text = word.Persian;
+                txt_Persian.Text = word.Translation;
 
                 meanings = word.Meanings;
                 phonetics = word.Phonetics;

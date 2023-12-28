@@ -21,9 +21,9 @@ namespace tdic.WordsRepository
                 SourceUrl = word.SourceUrl
             };
 
-            if (word.Persian != null)
+            if (word.Translation != null)
             {
-                dbWords.Persian = word.Persian;
+                dbWords.Translation = word.Translation;
             }
 
             return dbWords;
@@ -88,7 +88,7 @@ namespace tdic.WordsRepository
             {
                 WordID = word.WordID,
                 English = word.English,
-                Persian = word.Persian,
+                Translation = word. Translation,
                 Phonetics = phonetics.Select(phonetic => new Phonetic
                 {
                     PhoneticID = phonetic.PhoneticID,

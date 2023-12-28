@@ -163,11 +163,49 @@ namespace tdic
                     int[] counts = db.WordsRepository.ReadCounts(SelectedWord.WordID);
 
                     txb_Word.Text = SelectedWord.English;
-                    txb_Translate.Text = SelectedWord.Persian;
+                    txb_Translate.Text = SelectedWord.Translation;
                     txb_Meanings.Text = counts[1].ToString();
                     txb_Definitions.Text = counts[2].ToString();
                     txb_Phonetics.Text = counts[0].ToString();
                     //txb_Images.Text = counts[3];
+
+                    switch (SelectedWord.Rate)
+                    {
+                        case "1":
+                            {
+                                starone.Content = "★";
+                                startwo.Content = starthree.Content = starfive.Content = starfour.Content = "☆";
+                            }
+                            break;
+                        case "2":
+                            {
+                                startwo.Content = starone.Content = "★";
+                                starthree.Content = starfive.Content = starfour.Content = "☆";
+                            }
+                            break;
+                        case "3":
+                            {
+                                starthree.Content = startwo.Content = starone.Content = "★";
+                                starfive.Content = starfour.Content = "☆";
+                            }
+                            break;
+                        case "4":
+                            {
+                                starfour.Content = starthree.Content = startwo.Content = starone.Content = "★";
+                                starfive.Content = "☆";
+                            }
+                            break;
+                        case "5":
+                            {
+                                starthree.Content = starfour.Content = starfive.Content = startwo.Content =  starfive.Content = starone.Content = "★";
+                            }
+                            break;
+                        default:
+                            {
+
+                            }
+                            break;
+                    }
 
                 }
             }

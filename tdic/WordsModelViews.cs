@@ -6,7 +6,7 @@ namespace WordsDBModelView
     {
         public string WordID { get; set; }
         public string English { get; set; }
-        public string Persian { get; set; }
+        public string Translation { get; set; }
         public string Rate { get; set; }
         public string SourceUrl { get; set; }
     }
@@ -67,7 +67,7 @@ namespace WordsListedModelView
     {
         public string WordID { get; set; }
         public string English { get; set; }
-        public string Persian { get; set; }
+        public string Translation { get; set; }
         public List<Meaning> Meanings { get; set; }
         public List<Phonetic> Phonetics { get; set; }
         public string Rate { get; set; }

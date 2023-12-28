@@ -142,7 +142,7 @@ namespace tdic
             // Add the root node
             TreeViewItem rootNode = new()
             {
-                Header = $"{word.English} ({word.Persian})"
+                Header = $"{word.English} ({word.Translation})"
             };
             Word_trw.Items.Add(rootNode);
 

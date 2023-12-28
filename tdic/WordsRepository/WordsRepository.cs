@@ -172,7 +172,7 @@ namespace tdic.WordsRepository
 
         public void UpdateWord(Words word)
         {
-            db.Query("UPDATE Words SET English = @English,Persian = @Persian WHERE WordID = @WordID", new { word.English, word.Persian, word.WordID });
+            db.Query("UPDATE Words SET English = @English,Persian = @Persian WHERE WordID = @WordID", new { word.English, word.Translation, word.WordID });
         }
 
         public void UpdatePhonetics(List<Phonetics> phonetics)

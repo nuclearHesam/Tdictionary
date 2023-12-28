@@ -159,7 +159,7 @@ namespace tdic
         void SetSearchedWord(Word word)
         {
             word_English_txt.Text = word.English;
-            word_Persian_txt.Text = word.Persian;
+            word_Persian_txt.Text = word.Translation;
             sourceUrl = word.SourceUrl;
 
             foreach (var meaning in meanings)
@@ -1036,7 +1036,7 @@ namespace tdic
                     {
                         WordID = this.word.WordID,
                         English = word_English_txt.Text.Trim(),
-                        Persian = word_Persian_txt.Text.Trim(),
+                        Translation = word_Persian_txt.Text.Trim(),
                         Meanings = meanings,
                         Phonetics = this.phonetics,
                         SourceUrl = sourceUrl
@@ -1083,7 +1083,7 @@ namespace tdic
                     Word word = new()
                     {
                         English = word_English_txt.Text.Trim(),
-                        Persian = word_Persian_txt.Text.Trim(),
+                        Translation = word_Persian_txt.Text.Trim(),
                         Meanings = meanings.FindAll(meaning => meaning.Definitions.Count != 0),
                         Phonetics = phonetics,
                         SourceUrl = sourceUrl

@@ -26,7 +26,7 @@ namespace tdic.InternetConnectionLayer.WebAPI
                         List<Word> words = roots.Select(root => new Word
                         {
                             English = root.word,
-                            Persian = "",
+                            Translation = "",
                             SourceUrl = root.sourceUrls.FirstOrDefault(s => s.Contains("en.wiktionary.org")),
                             Phonetics = root.phonetics.Select(SearchedPhonetic =>
                             {
