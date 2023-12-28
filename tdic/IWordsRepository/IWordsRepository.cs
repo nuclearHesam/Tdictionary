@@ -33,6 +33,8 @@ namespace tdic.IWordsRepository
 
         List<Words> ReadWordByFilter(string PartOfSpeech);
 
+        int[] ReadCounts(string WordID);
+
 
         void UpdateWord(Words word);
 

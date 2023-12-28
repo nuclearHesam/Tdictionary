@@ -154,7 +154,23 @@ namespace tdic
 
         private void Words_lbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (Words_lbx.SelectedItem != null)
+            {
+                if (Words_lbx.SelectedItem is Words SelectedWord)
+                {
+                    using UnitOfWork db = new UnitOfWork();
 
+                    int[] counts = db.WordsRepository.ReadCounts(SelectedWord.WordID);
+
+                    txb_Word.Text = SelectedWord.English;
+                    txb_Translate.Text = SelectedWord.Persian;
+                    txb_Meanings.Text = counts[1].ToString();
+                    txb_Definitions.Text = counts[2].ToString();
+                    txb_Phonetics.Text = counts[0].ToString();
+                    //txb_Images.Text = counts[3];
+
+                }
+            }
         }
 
         #endregion
@@ -169,8 +185,6 @@ namespace tdic
 
             lbl_Count.Content = Words.Count;
         }
-
-
 
 
         private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)

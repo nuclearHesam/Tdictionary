@@ -148,6 +148,24 @@ namespace tdic.WordsRepository
             return words;
         }
 
+        public int[] ReadCounts(string WordID)
+        {
+            int[] counts = new int[3];
+
+            counts[0] = db.ExecuteScalar<int>("SELECT COUNT(*) FROM Phonetics WHERE WordID = @WordID", new { WordID });
+
+            var meanings =ReadMeanings(WordID);
+
+            counts[1] = meanings.Count;
+
+            foreach (var meaning in meanings)
+            {
+                counts[2] += db.ExecuteScalar<int>("SELECT COUNT(*) FROM Definitions WHERE MeaningID = @MeaningID", new { meaning.MeaningID }); 
+            }
+
+            return counts;
+        }
+
         #endregion
 
         #region Update
