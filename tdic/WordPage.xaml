@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:tdic"
         mc:Ignorable="d"
         Title="Word" Height="612" Width="368" ResizeMode="CanMinimize" 
-        Icon="D:\Study\MyAPP\Project\tdic\tdic\Images\WordPage\word-icon.png" 
+        Icon="D:\MyAPP\Project\tdic\tdic\Images\WordPage\word-icon.png" 
         Loaded="Window_Loaded">
     <!--  Resources  -->
     <Window.Resources>
-        <FontFamily x:Key="Vazir">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
+        <FontFamily x:Key="Vazir">D:\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
 
         <Style TargetType="TextBox">
             <Setter Property="Template">
@@ -223,7 +223,7 @@
                                  Margin="10 0 10 0" />
 
                     <Image 
-                            Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\US.png" 
+                            Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\US.png" 
                             Width="45" 
                             Margin="0 0 5 0" />
 
@@ -233,7 +233,7 @@
                             Click="Us_speaker_btn_Click" 
                             Style="{StaticResource Speakers}">
                         <StackPanel>
-                            <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\speaker.png"/>
+                            <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\speaker.png"/>
                         </StackPanel>
                     </Button>
 
@@ -243,7 +243,7 @@
                             Click="Btn_us_folder_Click" 
                             Style="{StaticResource folders}">
                         <StackPanel>
-                            <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\WordPage\music-folder.png"/>
+                            <Image Source="D:\MyAPP\Project\tdic\tdic\Images\WordPage\music-folder.png"/>
                         </StackPanel>
                     </Button>
 
@@ -264,7 +264,7 @@
                                  Margin="10 0 10 0" />
 
                     <Image 
-                            Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\GB.png" 
+                            Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\GB.png" 
                             Width="45" 
                             Margin="0 0 5 0" />
 
@@ -273,7 +273,7 @@
                             Click="Uk_speaker_btn_Click"
                             Style="{StaticResource Speakers}">
                         <StackPanel>
-                            <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\speaker.png"/>
+                            <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\speaker.png"/>
                         </StackPanel>
                     </Button>
 
@@ -283,7 +283,7 @@
                             Click="Btn_uk_folder_Click" 
                             Style="{StaticResource folders}">
                         <StackPanel>
-                            <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\WordPage\music-folder.png"/>
+                            <Image Source="D:\MyAPP\Project\tdic\tdic\Images\WordPage\music-folder.png"/>
                         </StackPanel>
                     </Button>
 
@@ -303,14 +303,14 @@
                                  IsReadOnly="True"
                                  Margin="10 0 10 0" />
 
-                    <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\ca.png" Width="45" Margin="0 0 5 0" />
+                    <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\ca.png" Width="45" Margin="0 0 5 0" />
 
                     <Button x:Name="ca_speaker_btn" 
                             Margin="0 0 5 0" 
                             Click="Ca_speaker_btn_Click"
                             Style="{StaticResource Speakers}">
                         <StackPanel>
-                            <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\speaker.png"/>
+                            <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\speaker.png"/>
                         </StackPanel>
                     </Button>
 
@@ -320,7 +320,7 @@
                             Click="Btn_ca_folder_Click" 
                             Style="{StaticResource folders}">
                         <StackPanel>
-                            <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\WordPage\music-folder.png"/>
+                            <Image Source="D:\MyAPP\Project\tdic\tdic\Images\WordPage\music-folder.png"/>
                         </StackPanel>
                     </Button>
 
@@ -344,7 +344,7 @@
                     Click="Btn_Translate_Click">
 
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\translate.png" 
+                    <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\translate.png" 
                            Width="28" Height="28" 
                            VerticalAlignment="Center"
                            Margin="0,0,5,0" />

@@ -8,18 +8,18 @@
         Title="Setting"
         Height="518" Width="560" 
         ResizeMode="NoResize" 
-        Icon="D:\Study\MyAPP\Project\tdic\tdic\Images\Setting\setting.ico" 
+        Icon="D:\MyAPP\Project\tdic\tdic\Images\Setting\setting.ico" 
         Loaded="Window_Loaded">
 
     <!--  image  -->
     <Window.Background>
-        <ImageBrush ImageSource="D:\Study\MyAPP\Project\tdic\tdic\Images\Setting\Setting.jpg" />
+        <ImageBrush ImageSource="D:\MyAPP\Project\tdic\tdic\Images\Setting\Setting.jpg" />
     </Window.Background>
     
     <!--  Font  -->
     <Window.Resources>
-        <FontFamily x:Key="Vazir">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
-        <FontFamily x:Key="Proxima Medium">D:\Study\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-Medium.ttf#Proxima Soft Medium</FontFamily>
+        <FontFamily x:Key="Vazir">D:\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
+        <FontFamily x:Key="Proxima Medium">D:\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-Medium.ttf#Proxima Soft Medium</FontFamily>
     </Window.Resources>
     
     <!--  Content  -->

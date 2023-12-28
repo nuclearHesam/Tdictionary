@@ -9,14 +9,14 @@
         Height="712" Width="795"
         MinHeight="712" MinWidth="795" 
         Background="#e5e5e5" 
-        Icon="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\Help.ico" 
+        Icon="D:\MyAPP\Project\tdic\tdic\Images\Help\Help.ico" 
         Loaded="Window_Loaded">
 
     <Window.Resources>
-        <FontFamily x:Key="Vazir">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
-        <FontFamily x:Key="Vazir Bold">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir-Bold.ttf#Vazir</FontFamily>
-        <FontFamily x:Key="Proxima ExtraBold">D:\Study\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-ExtraBold.ttf#Proxima Soft ExtraBold</FontFamily>
-        <FontFamily x:Key="Proxima Medium">D:\Study\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-Medium.ttf#Proxima Soft Medium</FontFamily>
+        <FontFamily x:Key="Vazir">D:\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
+        <FontFamily x:Key="Vazir Bold">D:\MyAPP\Project\tdic\tdic\Fonts\Vazir-Bold.ttf#Vazir</FontFamily>
+        <FontFamily x:Key="Proxima ExtraBold">D:\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-ExtraBold.ttf#Proxima Soft ExtraBold</FontFamily>
+        <FontFamily x:Key="Proxima Medium">D:\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-Medium.ttf#Proxima Soft Medium</FontFamily>
     </Window.Resources>
     
     <StackPanel Margin="50" 
@@ -60,7 +60,7 @@
                 
                 <StackPanel Margin="30">
 
-                    <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\map.png" 
+                    <Image Source="D:\MyAPP\Project\tdic\tdic\Images\Help\map.png" 
                            Height="55" Margin="0 0 0 10" />
                     
                     <TextBlock HorizontalAlignment="Center" FontWeight="Medium" FontSize="24" Margin="0 0 0 10" x:Name="map_header_txb">
@@ -84,7 +84,7 @@
                 
                 <StackPanel Margin="30">
                     
-                    <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\phone.png" 
+                    <Image Source="D:\MyAPP\Project\tdic\tdic\Images\Help\phone.png" 
                            Height="55" 
                            Margin="0 0 0 10" />
 
@@ -114,7 +114,7 @@
                 
                 <StackPanel Margin="30">
                     
-                    <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\telegram.png" 
+                    <Image Source="D:\MyAPP\Project\tdic\tdic\Images\Help\telegram.png" 
                            Height="55" Margin="0 0 0 10" />
                     
                     <TextBlock HorizontalAlignment="Center" 
@@ -141,7 +141,7 @@
                 
                 <StackPanel Margin="30">
                     
-                    <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\Help\gmail.png" 
+                    <Image Source="D:\MyAPP\Project\tdic\tdic\Images\Help\gmail.png" 
                            Height="55" Margin="0 0 0 10" />
                     
                     <TextBlock HorizontalAlignment="Center" 

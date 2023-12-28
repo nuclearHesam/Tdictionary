@@ -9,21 +9,21 @@
         Title="MainWindow" 
         Height="630" Width="850"
         MinHeight="630" MinWidth="850"
-        Icon="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\book-icon.png" 
+        Icon="D:\MyAPP\Project\tdic\tdic\Images\MainWindow\book-icon.png" 
         Loaded="Window_Loaded">
 
     <!--  Background  -->
     <Window.Background>
-        <ImageBrush ImageSource="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\books-background.jpg" />
+        <ImageBrush ImageSource="D:\MyAPP\Project\tdic\tdic\Images\MainWindow\books-background.jpg" />
     </Window.Background>
 
     <!--  Respurces  -->
     <Window.Resources>
         
-        <FontFamily x:Key="Vazir">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
-        <FontFamily x:Key="Vazir Bold">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir-Bold.ttf#Vazir</FontFamily>
-        <FontFamily x:Key="Proxima ExtraBold">D:\Study\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-ExtraBold.ttf#Proxima Soft ExtraBold</FontFamily>
-        <FontFamily x:Key="Proxima Medium">D:\Study\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-Medium.ttf#Proxima Soft Medium</FontFamily>
+        <FontFamily x:Key="Vazir">D:\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
+        <FontFamily x:Key="Vazir Bold">D:\MyAPP\Project\tdic\tdic\Fonts\Vazir-Bold.ttf#Vazir</FontFamily>
+        <FontFamily x:Key="Proxima ExtraBold">D:\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-ExtraBold.ttf#Proxima Soft ExtraBold</FontFamily>
+        <FontFamily x:Key="Proxima Medium">D:\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-Medium.ttf#Proxima Soft Medium</FontFamily>
     
     </Window.Resources>
 
@@ -61,13 +61,13 @@
                                 <ControlTemplate TargetType="Button">
                                     <Border x:Name="ButtonBorder" Padding="5" BorderThickness="1" >
                                         <StackPanel >
-                                            <Image x:Name="ButtonImage" Source="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\Toolbar\Setting_Preview.png" Width="40" Height="40"/>
+                                            <Image x:Name="ButtonImage" Source="D:\MyAPP\Project\tdic\tdic\Images\MainWindow\Toolbar\Setting_Preview.png" Width="40" Height="40"/>
                                             <TextBlock Text="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" Foreground="WhiteSmoke" HorizontalAlignment="Center"  FontSize="15"  />
                                         </StackPanel>
                                     </Border>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter TargetName="ButtonImage" Property="Source" Value="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\Toolbar\Setting_Hover.png"/>
+                                            <Setter TargetName="ButtonImage" Property="Source" Value="D:\MyAPP\Project\tdic\tdic\Images\MainWindow\Toolbar\Setting_Hover.png"/>
                                             <Setter TargetName="ButtonBorder" Property="BorderThickness" Value="1"/>
                                             <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="White"/>
                                             <Setter TargetName="ButtonBorder" Property="CornerRadius"  Value="10" />
@@ -96,13 +96,13 @@
                                 <ControlTemplate TargetType="Button">
                                     <Border x:Name="ButtonBorder" Padding="5" BorderThickness="1" >
                                         <StackPanel  >
-                                            <Image x:Name="ButtonImage" Source="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\Toolbar\Help_Preview.png" Width="40" Height="40"/>
+                                            <Image x:Name="ButtonImage" Source="D:\MyAPP\Project\tdic\tdic\Images\MainWindow\Toolbar\Help_Preview.png" Width="40" Height="40"/>
                                             <TextBlock Text="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" Foreground="WhiteSmoke" HorizontalAlignment="Center" FontSize="15" x:Name="Help_txb" />
                                         </StackPanel>
                                     </Border>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter TargetName="ButtonImage" Property="Source" Value="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\Toolbar\Help_Hover.png"/>
+                                            <Setter TargetName="ButtonImage" Property="Source" Value="D:\MyAPP\Project\tdic\tdic\Images\MainWindow\Toolbar\Help_Hover.png"/>
                                             <Setter TargetName="ButtonBorder" Property="BorderThickness" Value="1"/>
                                             <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="White"/>
                                             <Setter TargetName="ButtonBorder" Property="CornerRadius"  Value="10" />
@@ -418,7 +418,7 @@
 
             <!--  background  -->
             <Grid.Background >
-                <ImageBrush ImageSource="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\Books_Elemente_background.jpg"/>
+                <ImageBrush ImageSource="D:\MyAPP\Project\tdic\tdic\Images\MainWindow\Books_Elemente_background.jpg"/>
             </Grid.Background>
 
             <!--  RadioButtons  -->
@@ -867,7 +867,7 @@
                             Click="btn_Reset_Click"
                         Grid.Column="2">
                     <StackPanel >
-                        <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\MainWindow\reset.png"/>
+                        <Image Source="D:\MyAPP\Project\tdic\tdic\Images\MainWindow\reset.png"/>
                     </StackPanel>
                 </Button>
 

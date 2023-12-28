@@ -8,13 +8,13 @@
         Title="Add new Word" 
         Height="590" Width="368" 
         ResizeMode="CanMinimize" 
-        Icon="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\addword.png" 
+        Icon="D:\MyAPP\Project\tdic\tdic\Images\AddWord\addword.png" 
         Loaded="Window_Loaded">
     
     <!--  Respurces   -->
     <Window.Resources>
-        <FontFamily x:Key="Vazir">D:\Study\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
-        <FontFamily x:Key="Proxima Medium">D:\Study\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-Medium.ttf#Proxima Soft Medium</FontFamily>
+        <FontFamily x:Key="Vazir">D:\MyAPP\Project\tdic\tdic\Fonts\Vazir.ttf#Vazir</FontFamily>
+        <FontFamily x:Key="Proxima Medium">D:\MyAPP\Project\tdic\tdic\Fonts\ProximaSoft-Medium.ttf#Proxima Soft Medium</FontFamily>
 
         <Style TargetType="TextBox">
             <Setter Property="Template">
@@ -44,7 +44,7 @@
                 <Button x:Name="search_btn" Width="28" Height="28" BorderThickness="0.5" Margin="5.7 0 0 0" Click="Search_btn_Click"
                         Background="White">
                     <StackPanel>
-                        <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\internet.png"/>
+                        <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\internet.png"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -57,7 +57,7 @@
                 <Button x:Name="translate_btn" Width="28" Height="28" BorderThickness="0.5" Margin="5 0 0 0" Click="Translate_btn_Click" MouseDoubleClick="Translate_btn_MouseDoubleClick"
                         Background="White">
                     <StackPanel>
-                        <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\translate.png"/>
+                        <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\translate.png"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -123,76 +123,76 @@
                     <!--  us  -->
                     <StackPanel x:Name="us_stc" Orientation="Horizontal">
                         <TextBox x:Name="us_txt" Padding="1" FontSize="17" Width="150" Height="24" FontFamily="0" FontWeight="UltraLight" Margin="0 0 10 0" />
-                        <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\US.png" Width="45" Margin="0 0 5 0" />
+                        <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\US.png" Width="45" Margin="0 0 5 0" />
                         <!--  mic  -->
                         <Button x:Name="us_mic_btn" Margin="0 0 5 0" Width="28" Height="28" BorderThickness="0.5" Click="Us_mic_btn_Click" 
                                 Background="White">
                             <StackPanel>
-                                <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\mic-off.png"/>
+                                <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\mic-off.png"/>
                             </StackPanel>
                         </Button>
                         <!--  speaker  -->
                         <Button x:Name="us_speaker_btn" Margin="0 0 5 0" Width="28" Height="28" BorderThickness="0.5" Click="Us_speaker_btn_Click" 
                                 Background="White">
                             <StackPanel>
-                                <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\speaker.png"/>
+                                <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\speaker.png"/>
                             </StackPanel>
                         </Button>
                         <!--  delete  -->
                         <Button x:Name="us_delete_btn" Margin="0 0 0 0" Width="28" Height="28" BorderThickness="0.5" Click="Us_delete_btn_Click" 
                                 Background="White">
                             <StackPanel>
-                                <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\delete.png"/>
+                                <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\delete.png"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
                     <!--  uk  -->
                     <StackPanel x:Name="uk_stc" Orientation="Horizontal" Margin="0 0 0 0">
                         <TextBox x:Name="uk_txt" FontSize="17" Width="150" Height="24" FontFamily="0" FontWeight="UltraLight" Margin="0 0 10 0" />
-                        <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\GB.png" Width="45" Margin="0 0 5 0" />
+                        <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\GB.png" Width="45" Margin="0 0 5 0" />
                         <!--  mic  -->
                         <Button x:Name="uk_mic_btn" Margin="0 0 5 0" Width="28" Height="28" BorderThickness="0.5" Click="Uk_mic_btn_Click" 
                                 Background="White">
                             <StackPanel>
-                                <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\mic-off.png"/>
+                                <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\mic-off.png"/>
                             </StackPanel>
                         </Button>
                         <Button x:Name="uk_speaker_btn" Margin="0 0 5 0" Width="28" Height="28" BorderThickness="0.5" Click="Uk_speaker_btn_Click"
                                 Background="White">
                             <StackPanel>
-                                <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\speaker.png"/>
+                                <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\speaker.png"/>
                             </StackPanel>
                         </Button>
                         <!--  delete  -->
                         <Button x:Name="uk_delete_btn" Margin="0 0 0 0" Width="28" Height="28" BorderThickness="0.5" Click="Uk_delete_btn_Click"
                                 Background="White">
                             <StackPanel>
-                                <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\delete.png"/>
+                                <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\delete.png"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
                     <!--  ca  -->
                     <StackPanel x:Name="ca_stc" Orientation="Horizontal" Margin="0 0 0 0">
                         <TextBox x:Name="ca_txt" FontSize="17" Width="150" Height="24" FontFamily="0" FontWeight="UltraLight" Margin="0 0 10 0" />
-                        <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\ca.png" Width="45" Margin="0 0 5 0" />
+                        <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\ca.png" Width="45" Margin="0 0 5 0" />
                         <!--  mic  -->
                         <Button x:Name="ca_mic_btn" Margin="0 0 5 0" Width="28" Height="28" BorderThickness="0.5" Click="Ca_mic_btn_Click" 
                                 Background="White">
                             <StackPanel>
-                                <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\mic-off.png"/>
+                                <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\mic-off.png"/>
                             </StackPanel>
                         </Button>
                         <Button x:Name="ca_speaker_btn" Margin="0 0 5 0" Width="28" Height="28" BorderThickness="0.5" Click="Ca_speaker_btn_Click"
                                 Background="White">
                             <StackPanel>
-                                <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\speaker.png"/>
+                                <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\speaker.png"/>
                             </StackPanel>
                         </Button>
                         <!--  delete  -->
                         <Button x:Name="au_delete_btn" Margin="0 0 0 0" Width="28" Height="28" BorderThickness="0.5" Click="Au_delete_btn_Click"
                                 Background="White">
                             <StackPanel>
-                                <Image Source="D:\Study\MyAPP\Project\tdic\tdic\Images\AddWord\delete.png"/>
+                                <Image Source="D:\MyAPP\Project\tdic\tdic\Images\AddWord\delete.png"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
