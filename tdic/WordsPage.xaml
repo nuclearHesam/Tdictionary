@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:tdic"
         mc:Ignorable="d"
         Title="Words " 
-        Height="650" Width="600"
-        MinHeight="650" MinWidth="600"
+        Height="685" Width="600"
+        MinHeight="685" MinWidth="600"
         Loaded="Window_Loaded">
 
     <!--  Resources  -->
@@ -34,7 +34,8 @@
         </Grid.RowDefinitions>
 
         <ListBox x:Name="Words_lbx" Background="WhiteSmoke"
-                 SelectionChanged="Words_lbx_SelectionChanged">
+                 SelectionChanged="Words_lbx_SelectionChanged"
+                 FontWeight="Bold">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="3"/>
@@ -43,9 +44,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{Binding WordID}" Visibility="Collapsed"/>
-                        <TextBlock Text="{Binding English}" MaxWidth="150" MaxHeight="20" Width="150" Height="20"/>
-                        <TextBlock Text="{Binding Persian}" Visibility="Collapsed"/>
+                        <TextBlock Text="{Binding English}" MaxWidth="190" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -55,6 +54,7 @@
         <!--  listbox Count  -->
         <Label x:Name="lbl_Count"
                Content="Count"
+               FontWeight="Bold"
                HorizontalAlignment="Right"
                VerticalAlignment="Bottom"
                Margin="0 0 15 15"/>
@@ -65,6 +65,7 @@
             <!--  Search  -->
             <GroupBox Header="Search"
                       FontSize="15"
+                      FontWeight="Bold"
                       Padding="10">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -184,6 +185,7 @@
             <!--  Word  -->
             <GroupBox Header="Word"
                       FontSize="15"
+                      FontWeight="Bold"
                       Padding="10"
                       IsEnabled="False">
 
@@ -197,7 +199,7 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
                     <Grid.Resources>
@@ -209,45 +211,69 @@
                     <!--  Word  -->
                     <TextBlock x:Name="txb_Word"
                                FontSize="15"
-                               Text="Word"
-                               Margin="5"/>
+                               Margin="5 5 0 5"
+                               Text="Word"/>
 
-                    <!--  Translate  -->
+                    <!--  Translation  -->
                     <TextBlock x:Name="txb_Translate"
                                FontSize="15"
-                               Text="Translate"
+                               Text="Translation"
                                Grid.Row="1"
-                               Margin="5"/>
+                               Margin="5 5 0 5"/>
 
                     <!--  Meanings  -->
-                    <TextBlock x:Name="txb_Meanings"
-                               FontSize="15"
-                               Text="Meanings Count"
-                               Grid.Column="1"
-                               Margin="5"/>
+                    <StackPanel Grid.Column="1" 
+                                Orientation="Horizontal"
+                                Margin="5 5 0 5">
+
+                        <Label FontSize="15"
+                               Content="Meanings:"/>
+
+                        <TextBlock x:Name="txb_Meanings"
+                                   FontSize="15"/>
+
+                    </StackPanel>
 
                     <!--  definition  -->
-                    <TextBlock x:Name="txb_Definitions"
-                               FontSize="15"
-                               Text="Definitions Count"
-                               Grid.Column="1"
-                               Grid.Row="1"
-                               Margin="5"/>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="5 5 0 5" 
+                                Grid.Column="1"
+                                Grid.Row="1">
+
+                        <Label FontSize="15"
+                               Content="Definitions:"/>
+
+                        <TextBlock x:Name="txb_Definitions"
+                                    FontSize="15"/>
+
+                    </StackPanel>
 
                     <!--  Phonetics  -->
-                    <TextBlock x:Name="txb_Phonetics"
-                               FontSize="15"
-                               Text="Phonetics Count"
-                               Grid.Column="2"
-                               Margin="5"/>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="5 5 0 5" 
+                                Grid.Column="2">
+
+                        <Label FontSize="15"
+                               Content="Phonetics:"/>
+
+                        <TextBlock x:Name="txb_Phonetics"
+                                    FontSize="15"/>
+
+                    </StackPanel>
 
                     <!--  Images  -->
-                    <TextBlock x:Name="txb_Images"
-                               FontSize="15"
-                               Text="Images Count"
-                               Grid.Column="2"
-                               Grid.Row="1"
-                               Margin="5"/>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="5 5 0 5" 
+                                Grid.Column="2"
+                                Grid.Row="1">
+
+                        <Label FontSize="15"
+                               Content="Images:"/>
+
+                        <TextBlock x:Name="txb_Images"
+                                    FontSize="15"/>
+
+                    </StackPanel>
 
                     <!--  stars  -->
                     <Border BorderThickness="0.3" 
@@ -283,7 +309,7 @@
                     <!--  Source Url  -->
                     <TextBlock Grid.Column="3"
                                Grid.Row="1"
-                               Margin="5"
+                               Margin="5 5 0 5"
                                FontSize="15"
                                x:Name="txt">
                         <Hyperlink NavigateUri="{Binding}"
@@ -294,7 +320,7 @@
 
                     <!--  Open  -->
                     <Button Content="Open"
-                            FontSize="22" 
+                            FontSize="25" 
                             x:Name="btn_Opent" 
                             Click="btn_Edit_Click" 
                             Grid.Column="4"
@@ -321,6 +347,9 @@
                                                 </Trigger>
                                                 <Trigger Property="IsPressed" Value="True">
                                                     <Setter Property="Background" Value="#389bd9"/>
+                                                </Trigger>
+                                                <Trigger Property="IsEnabled" Value="False">
+                                                    <Setter Property="Background" Value="Gray"/>
                                                 </Trigger>
                                             </ControlTemplate.Triggers>
                                         </ControlTemplate>

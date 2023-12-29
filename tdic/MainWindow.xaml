@@ -566,9 +566,7 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding WordID}" Margin="5" Visibility="Collapsed"/>
                                 <TextBlock Text="{Binding English}" Margin="5"/>
-                                <TextBlock Text="{Binding Persian}" Margin="5" Visibility="Collapsed"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

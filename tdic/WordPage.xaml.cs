@@ -32,7 +32,6 @@ namespace tdic
         Meaning meaning = new() { Definitions = new List<Definition>() };
         byte offset = 0;
         bool _isFirstTime = false;
-        string sourceUrl;
 
         #region MessageBoxLanguage
 

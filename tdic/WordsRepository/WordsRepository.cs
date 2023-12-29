@@ -27,7 +27,7 @@ namespace tdic.WordsRepository
                 @"CREATE TABLE IF NOT EXISTS Words (
                     WordID TEXT PRIMARY KEY,
                     English TEXT,
-                    Persian TEXT
+                    Translation TEXT
 	                Rate TEXT,
 	                SourceUrl TEXT)");
 
@@ -59,7 +59,7 @@ namespace tdic.WordsRepository
 
         public void CreateWord(Words word, List<Phonetics> phonetics, List<Meanings> meanings, List<Definitions> definitions)
         {
-            db.Execute("INSERT INTO Words (WordID, English, Persian, SourceUrl) VALUES (@WordID, @English, @Persian, @SourceUrl)", word);
+            db.Execute("INSERT INTO Words (WordID, English, Translation, SourceUrl) VALUES (@WordID, @English, @Translation, @SourceUrl)", word);
             db.Execute("INSERT INTO Phonetics (WordID, PhoneticID, Text, Audio, Language) VALUES (@WordID, @PhoneticID, @Text, @Audio, @Language)", phonetics);
             db.Execute("INSERT INTO Meanings (WordID, PartOfSpeech, MeaningID) VALUES (@WordID, @PartOfSpeech, @MeaningID)", meanings);
             db.Execute("INSERT INTO Definitions (MeaningID, DefinitionID, Text, Example) VALUES (@MeaningID, @DefinitionID,  @Text, @Example)", definitions);
@@ -172,7 +172,7 @@ namespace tdic.WordsRepository
 
         public void UpdateWord(Words word)
         {
-            db.Query("UPDATE Words SET English = @English,Persian = @Persian WHERE WordID = @WordID", new { word.English, word.Translation, word.WordID });
+            db.Query("UPDATE Words SET English = @English,Translation = @Translation WHERE WordID = @WordID", new { word.English, word.Translation, word.WordID });
         }
 
         public void UpdatePhonetics(List<Phonetics> phonetics)

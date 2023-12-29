@@ -36,11 +36,21 @@
     <StackPanel Margin="0">
         <!--  words  -->
         <StackPanel Margin="5" HorizontalAlignment="Center" >
+            
             <!--  word En  -->
             <StackPanel Orientation="Horizontal" Margin="0 3 0 3" >
+                
                 <Button x:Name="back_English_btn" Content="&lt;" Background="Transparent" Foreground="Red" BorderThickness="0"  FontSize="17" Height="25" Margin="0 0 0 0" Click="Back_English_btn_Click"/>
-                <TextBox x:Name="word_English_txt"  FontSize="18"  Width="270" Height="26" MaxLength="20" BorderThickness="1"  />
+                
+                <TextBox x:Name="word_English_txt" 
+                         FontSize="18"  
+                         Width="270" 
+                         Height="26" 
+                         MaxLength="20" 
+                         BorderThickness="1"/>
+                
                 <Button x:Name="next_English_btn" Content=">" Background="Transparent" Foreground="Green" BorderThickness="0"  FontSize="15" Height="25" Margin="0 0 0 0" Click="Next_English_btn_Click"/>
+                
                 <Button x:Name="search_btn" Width="28" Height="28" BorderThickness="0.5" Margin="5.7 0 0 0" Click="Search_btn_Click"
                         Background="White">
                     <StackPanel>
@@ -48,10 +58,19 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
+            
             <!--  word per  -->
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="back_Persian_btn" Content="&lt;" Background="Transparent" Foreground="Red" BorderThickness="0"  FontSize="17" Height="25" Margin="0 0 0 0" Click="Back_English_btn_Click"/>
-                <TextBox x:Name="word_Persian_txt"  FontSize="16" Height="26" Width="271" MaxLength="25" BorderThickness="1" FlowDirection="RightToLeft"/>
+                
+                <TextBox x:Name="word_Persian_txt"  
+                         FontSize="16" 
+                         Height="26" 
+                         Width="271" 
+                         MaxLength="25" 
+                         BorderThickness="1" 
+                         FlowDirection="RightToLeft"/>
+                
                 <Button x:Name="next_Persian_btn" Content=">" Background="Transparent" Foreground="Green" BorderThickness="0"  FontSize="15" Height="25" Margin="0 0 0 0" Click="Next_English_btn_Click"/>
                 <!--  translate   -->
                 <Button x:Name="translate_btn" Width="28" Height="28" BorderThickness="0.5" Margin="5 0 0 0" Click="Translate_btn_Click" MouseDoubleClick="Translate_btn_MouseDoubleClick"

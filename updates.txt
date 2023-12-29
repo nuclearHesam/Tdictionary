@@ -5,4 +5,3 @@ Decrease Add Word Size in 'Proxima Soft' Font
 Responsibilty for AddWord
 Responsibilty for WordPage
 Save phonetics when it's  just text !!
-change Persian filed to Translate
