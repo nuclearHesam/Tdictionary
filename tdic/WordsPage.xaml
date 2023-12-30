@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:tdic"
         mc:Ignorable="d"
         Title="Words " 
-        Height="685" Width="600"
-        MinHeight="685" MinWidth="600"
+        Height="700" Width="600"
+        MinHeight="700" MinWidth="600"
         Loaded="Window_Loaded">
 
     <!--  Resources  -->
@@ -64,9 +64,11 @@
 
             <!--  Search  -->
             <GroupBox Header="Search"
+                      x:Name="grpx_Search"
                       FontSize="15"
                       FontWeight="Bold"
                       Padding="10">
+                
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="244*"/>
@@ -187,6 +189,7 @@
                       FontSize="15"
                       FontWeight="Bold"
                       Padding="10"
+                      x:Name="grpx_Word"
                       IsEnabled="False">
 
                 <Grid>
@@ -196,9 +199,9 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
@@ -206,18 +209,19 @@
                         <Style TargetType="TextBlock">
                             <Setter Property="VerticalAlignment" Value="Center"/>
                         </Style>
+                        <Style TargetType="Label">
+                            <Setter Property="Foreground" Value="Gray"/>
+                        </Style>
                     </Grid.Resources>
 
                     <!--  Word  -->
                     <TextBlock x:Name="txb_Word"
                                FontSize="15"
-                               Margin="5 5 0 5"
-                               Text="Word"/>
+                               Margin="5 5 0 5"/>
 
                     <!--  Translation  -->
                     <TextBlock x:Name="txb_Translate"
                                FontSize="15"
-                               Text="Translation"
                                Grid.Row="1"
                                Margin="5 5 0 5"/>
 
@@ -227,7 +231,8 @@
                                 Margin="5 5 0 5">
 
                         <Label FontSize="15"
-                               Content="Meanings:"/>
+                               Content="Meanings:"
+                               x:Name="lbl_Meanings"/>
 
                         <TextBlock x:Name="txb_Meanings"
                                    FontSize="15"/>
@@ -241,7 +246,8 @@
                                 Grid.Row="1">
 
                         <Label FontSize="15"
-                               Content="Definitions:"/>
+                               Content="Definitions:"
+                               x:Name="lbl_Definitions"/>
 
                         <TextBlock x:Name="txb_Definitions"
                                     FontSize="15"/>
@@ -254,7 +260,8 @@
                                 Grid.Column="2">
 
                         <Label FontSize="15"
-                               Content="Phonetics:"/>
+                               Content="Phonetics:"
+                               x:Name="lbl_Phonetics"/>
 
                         <TextBlock x:Name="txb_Phonetics"
                                     FontSize="15"/>
@@ -268,7 +275,8 @@
                                 Grid.Row="1">
 
                         <Label FontSize="15"
-                               Content="Images:"/>
+                               Content="Images:"
+                               x:Name="lbl_Images"/>
 
                         <TextBlock x:Name="txb_Images"
                                     FontSize="15"/>
@@ -279,7 +287,8 @@
                     <Border BorderThickness="0.3" 
                             BorderBrush="Black"
                             Grid.Column="3"
-                            Margin="5 0 5 0" Padding="2 0 2 0">
+                            Margin="5" Padding="2 0 2 0"
+                            HorizontalAlignment="Left">
 
                         <StackPanel Orientation="Horizontal">
 
@@ -311,52 +320,53 @@
                                Grid.Row="1"
                                Margin="5 5 0 5"
                                FontSize="15"
-                               x:Name="txt">
-                        <Hyperlink NavigateUri="{Binding}"
+                               x:Name="txb_Source_Url">
+                        <Hyperlink x:Name="url_Hyperlink"
+                            NavigateUri="{Binding}"
                                    RequestNavigate="Hyperlink_RequestNavigate">
-                            <Run Text="Source Url"/>
+                            <Run x:Name="run_UrlText" Text="Source Url"/>
                         </Hyperlink>
                     </TextBlock>
 
                     <!--  Open  -->
-                    <Button Content="Open"
-                            FontSize="25" 
-                            x:Name="btn_Opent" 
+                    <Button x:Name="btn_Open" 
+                            Click="btn_Open_Click" 
+                            Grid.Column="4"
+                            Margin="5"
+                            Width="28"
+                            Background="White"
+                            BorderThickness="0.6"
+                            HorizontalAlignment="Left">
+                        <StackPanel>
+                            <Image Source="D:\MyAPP\Project\tdic\tdic\Images\WordsPage\icons8-forward-arrow-48.png"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!--  Edit  -->
+                    <Button x:Name="btn_Edit" 
                             Click="btn_Edit_Click" 
                             Grid.Column="4"
-                            Grid.RowSpan="2"
-                            Margin="5">
+                            Margin="5"
+                            Width="28"
+                            Background="White"
+                            BorderThickness="0.6">
+                        <StackPanel>
+                            <Image Source="D:\MyAPP\Project\tdic\tdic\Images\WordsPage\edit.png"/>
+                        </StackPanel>
+                    </Button>
 
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Foreground" Value="White"/>
-                                <Setter Property="Background" Value="#0ba6ff"/>
-                                <Setter Property="BorderThickness" Value="0"/>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="Button">
-                                            <Grid>
-                                                <Border CornerRadius="5" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
-                                                    <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                                                </Border>
-                                            </Grid>
-                                            <ControlTemplate.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Background" Value="#24a0ed"/>
-                                                </Trigger>
-                                                <Trigger Property="IsPressed" Value="True">
-                                                    <Setter Property="Background" Value="#389bd9"/>
-                                                </Trigger>
-                                                <Trigger Property="IsEnabled" Value="False">
-                                                    <Setter Property="Background" Value="Gray"/>
-                                                </Trigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </Button.Style>
+                    <!--  Delete  -->
+                    <Button x:Name="btn_Delete" 
+                            Click="btn_Delete_Click" 
+                            Grid.Column="4"
+                            Margin="5"
+                            Width="28"
+                            Background="White"
+                            BorderThickness="0.6"
+                            HorizontalAlignment="Right">
+                        <StackPanel>
+                            <Image Source="D:\MyAPP\Project\tdic\tdic\Images\WordsPage\Delete.png"/>
+                        </StackPanel>
                     </Button>
 
                 </Grid>

@@ -150,7 +150,7 @@ namespace tdic.WordsRepository
 
         public int[] ReadCounts(string WordID)
         {
-            int[] counts = new int[3];
+            int[] counts = new int[4];
 
             counts[0] = db.ExecuteScalar<int>("SELECT COUNT(*) FROM Phonetics WHERE WordID = @WordID", new { WordID });
 

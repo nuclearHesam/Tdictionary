@@ -378,42 +378,30 @@ namespace tdic
                 case "starone":
                     {
                         starone.Content = "★";
-                        startwo.Content = "☆";
-                        starthree.Content = "☆";
-                        starfour.Content = "☆";
-                        starfive.Content = "☆";
+                        startwo.Content = starthree.Content = starfive.Content = starfour.Content = "☆";
                         star = 1;
                         db.WordsRepository.UpdateWordRate(star, this.WordID);
                     }
                     break;
                 case "startwo":
                     {
-                        starone.Content = "★";
-                        startwo.Content = "★";
-                        starthree.Content = "☆";
-                        starfour.Content = "☆";
-                        starfive.Content = "☆";
+                        startwo.Content = starone.Content = "★";
+                        starthree.Content = starfive.Content = starfour.Content = "☆";
                         star = 2;
                         db.WordsRepository.UpdateWordRate(star, this.WordID);
                     }
                     break;
                 case "starthree":
                     {
-                        starone.Content = "★";
-                        startwo.Content = "★";
-                        starthree.Content = "★";
-                        starfour.Content = "☆";
-                        starfive.Content = "☆";
+                        starthree.Content = startwo.Content = starone.Content = "★";
+                        starfive.Content = starfour.Content = "☆";
                         star = 3;
                         db.WordsRepository.UpdateWordRate(star, this.WordID);
                     }
                     break;
                 case "starfour":
                     {
-                        starone.Content = "★";
-                        startwo.Content = "★";
-                        starthree.Content = "★";
-                        starfour.Content = "★";
+                        starfour.Content = starthree.Content = startwo.Content = starone.Content = "★";
                         starfive.Content = "☆";
                         star = 4;
                         db.WordsRepository.UpdateWordRate(star, this.WordID);
@@ -421,11 +409,7 @@ namespace tdic
                     break;
                 case "starfive":
                     {
-                        starone.Content = "★";
-                        startwo.Content = "★";
-                        starthree.Content = "★";
-                        starfour.Content = "★";
-                        starfive.Content = "★";
+                        starthree.Content = starfour.Content = starfive.Content = startwo.Content = starfive.Content = starone.Content = "★";
                         star = 5;
                         db.WordsRepository.UpdateWordRate(star, this.WordID);
                     }
