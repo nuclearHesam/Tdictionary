@@ -9,6 +9,8 @@ using WordsDBModelView;
 using WordsListedModelView;
 using System.Windows.Documents;
 using System.Windows.Media;
+using static Tdictionary.Models.Setting;
+using System;
 
 namespace tdic
 {
@@ -36,7 +38,7 @@ namespace tdic
                     MessageBoxLanguage = "English",
                 };
 
-                var Settings = new Settings { LanguageSettings = languageSettings };
+                var Settings = new Settings { LanguageSettings = languageSettings  };
 
                 Serializer.WriteSettingJson(Settings);
             }

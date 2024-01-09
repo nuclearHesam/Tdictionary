@@ -11,7 +11,9 @@ using tdic.WordsRepository;
 using WordsDBModelView;
 using WordsListedModelView;
 using System.Diagnostics;
-using tdic.ModelViews;
+using Tdictionary.Models;
+using static Tdictionary.Models.Setting;
+using Microsoft.VisualBasic.Devices;
 
 namespace tdic
 {
@@ -105,14 +107,14 @@ namespace tdic
                     }
                 }
 
-                if(word.SourceUrl != null)
+                if (word.SourceUrl != null)
                 {
                     Uri Source = new Uri(word.SourceUrl);
                     url_Hyperlink.NavigateUri = Source;
                 }
                 else
                 {
-                    url_Hyperlink.IsEnabled = false;    
+                    url_Hyperlink.IsEnabled = false;
                 }
 
                 switch (word.Rate)
@@ -295,7 +297,7 @@ namespace tdic
 
             try
             {
-                var AudioDirectory = phonetics.Find(ph => ph.Language == language).Audio;
+                var AudioDirectory = Directory.GetCurrentDirectory() + "\\Audios\\" + phonetics.Find(ph => ph.Language == language).Audio;
                 if (File.Exists(AudioDirectory))
                 {
                     mediaPlayer.Open(new Uri(AudioDirectory));
@@ -305,7 +307,7 @@ namespace tdic
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                System.Windows.MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -320,7 +322,7 @@ namespace tdic
             {
                 if (us.Audio != null)
                 {
-                    OpenFolder(us.Audio);
+                    OpenFolder(Directory.GetCurrentDirectory() + "\\Audios\\" + us.Audio);
                 }
             }
         }
@@ -332,7 +334,7 @@ namespace tdic
             {
                 if (uk.Audio != null)
                 {
-                    OpenFolder(uk.Audio);
+                    OpenFolder(Directory.GetCurrentDirectory() + "\\Audios\\" + uk.Audio);
                 }
             }
         }
@@ -344,7 +346,7 @@ namespace tdic
             {
                 if (au.Audio != null)
                 {
-                    OpenFolder(au.Audio);
+                    OpenFolder(Directory.GetCurrentDirectory() + "\\Audios\\" + au.Audio);
                 }
             }
         }

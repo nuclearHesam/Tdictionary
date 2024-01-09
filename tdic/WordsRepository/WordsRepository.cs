@@ -27,7 +27,7 @@ namespace tdic.WordsRepository
                 @"CREATE TABLE IF NOT EXISTS Words (
                     WordID TEXT PRIMARY KEY,
                     English TEXT,
-                    Translation TEXT
+                    Translation TEXT,
 	                Rate TEXT,
 	                SourceUrl TEXT)");
 
@@ -51,7 +51,7 @@ namespace tdic.WordsRepository
             db.Execute(
                 @"CREATE TABLE IF NOT EXISTS Definitions (
                     MeaningID TEXT,
-                    DefinitionID TEXT
+                    DefinitionID TEXT,
                     Text TEXT,
                     Example TEXT)");
 
@@ -263,6 +263,7 @@ namespace tdic.WordsRepository
         {
             db.Query("UPDATE Words SET Rate = @Rate WHERE WordID = @WordID", new { Rate, WordID });
         }
+
         #endregion
 
         #region Delete

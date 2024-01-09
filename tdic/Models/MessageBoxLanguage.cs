@@ -1,5 +1,4 @@
-﻿
-namespace tdic.ModelViews
+﻿namespace Tdictionary.Models
 {
     public class MessageBoxLanguage
     {

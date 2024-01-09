@@ -2,23 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using tdic.DataContext;
-using tdic.ModelViews;
 using tdic.SettingJson;
+using Tdictionary.Models;
 using WordsDBModelView;
-using WordsListedModelView;
+using static Tdictionary.Models.Setting;
 
 namespace tdic
 {
@@ -334,6 +326,7 @@ namespace tdic
                 using (UnitOfWork db = new())
                 {
                     db.WordsRepository.DeleteWord(Word.WordID);
+                    BindListBox();
                 }
             }
         }

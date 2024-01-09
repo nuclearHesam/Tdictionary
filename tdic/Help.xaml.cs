@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 using tdic.SettingJson;
+using static Tdictionary.Models.Setting;
 
 namespace tdic
 {

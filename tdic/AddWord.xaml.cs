@@ -10,11 +10,12 @@ using System.Windows.Media.Imaging;
 using tdic.DataContext;
 using tdic.InternetConnectionayer.Downloader;
 using tdic.InternetConnectionLayer.WebAPI;
-using tdic.ModelViews;
 using tdic.SettingJson;
 using tdic.WordsRepository;
+using Tdictionary.Models;
 using WordsDBModelView;
 using WordsListedModelView;
+using static Tdictionary.Models.Setting;
 
 namespace tdic
 {
@@ -86,10 +87,10 @@ namespace tdic
             var Settingslang = Serializer.ReadSettingJson();
             ChangeLanguageSetting(Settingslang.LanguageSettings);
 
-            AudioFolder = Directory.GetCurrentDirectory() + "\\audios";
-            if (!Directory.Exists(AudioFolder))
+            AudioFolder = System.IO.Directory.GetCurrentDirectory() + "\\Audios\\";
+            if (!System.IO.Directory.Exists(AudioFolder))
             {
-                Directory.CreateDirectory(AudioFolder);
+                System.IO.Directory.CreateDirectory(AudioFolder);
             }
 
             if (IsEditable)
@@ -243,11 +244,11 @@ namespace tdic
                 if (!File.Exists(phonetic.Audio) && phonetic.Audio != null)
                 {
                     string[] audioname = phonetic.Audio.Split('/');
-                    string AudioPath = AudioFolder + "\\" + audioname[6];
+                    string AudioPath =  audioname[6];
 
                     if (!File.Exists(AudioPath))
                     {
-                        if (await AudioDownloadManager.DownloadAudio(phonetic.Audio, AudioPath))
+                        if (await AudioDownloadManager.DownloadAudio(phonetic.Audio,AudioFolder+ AudioPath))
                         {
                             phonetic.Audio = AudioPath;
                         }
@@ -502,10 +503,10 @@ namespace tdic
 
             try
             {
-                var AudioDirectory = phonetics.Find(ph => ph.Language == language).Audio;
-                if (File.Exists(AudioDirectory))
+                var audioDirectory = AudioFolder + "\\"+ phonetics.Find(ph => ph.Language == language).Audio;
+                if (File.Exists(audioDirectory))
                 {
-                    mediaPlayer.Open(new Uri(AudioDirectory));
+                    mediaPlayer.Open(new Uri(audioDirectory));
 
                     mediaPlayer.Play();
                 }
@@ -520,8 +521,8 @@ namespace tdic
 
         #region Mics Buttons
 
-        readonly string micOnImage = "D:\\Study\\MyAPP\\Project\\tdic\\tdic\\Images\\AddWord\\mic-on.png";
-        readonly string micOffImage = "D:\\Study\\MyAPP\\Project\\tdic\\tdic\\Images\\AddWord\\mic-off.png";
+        readonly string micOnImage = "D:\\MyAPP\\Project\\tdic\\tdic\\Images\\AddWord\\mic-on.png";
+        readonly string micOffImage = "D:\\MyAPP\\Project\\tdic\\tdic\\Images\\AddWord\\mic-off.png";
 
         private void Us_mic_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -542,11 +543,11 @@ namespace tdic
                     var phonetic = phonetics.FirstOrDefault(phonetic => phonetic.Language == "us");
                     if (phonetic != null)
                     {
-                        phonetic.Audio = AudioPath;
+                        phonetic.Audio = word_English_txt.Text.Trim() + "-us.wav";
                     }
                     else
                     {
-                        phonetics.Add(new Phonetic { Language = "us", Audio = AudioPath });
+                        phonetics.Add(new Phonetic { Language = "us", Audio = word_English_txt.Text.Trim() + "-us.wav" });
                     }
                     EnableSpeakers();
                 }
@@ -572,11 +573,11 @@ namespace tdic
                     var phonetic = phonetics.FirstOrDefault(phonetic => phonetic.Language == "uk");
                     if (phonetic != null)
                     {
-                        phonetic.Audio = AudioPath;
+                        phonetic.Audio = word_English_txt.Text.Trim() + "-uk.wav";
                     }
                     else
                     {
-                        phonetics.Add(new Phonetic { Language = "uk", Audio = AudioPath });
+                        phonetics.Add(new Phonetic { Language = "uk", Audio = word_English_txt.Text.Trim() + "-uk.wav" });
                     }
                     EnableSpeakers();
 
@@ -603,11 +604,11 @@ namespace tdic
                     var phonetic = phonetics.FirstOrDefault(phonetic => phonetic.Language == "au");
                     if (phonetic != null)
                     {
-                        phonetic.Audio = AudioPath;
+                        phonetic.Audio = word_English_txt.Text.Trim() + "-au.wav";
                     }
                     else
                     {
-                        phonetics.Add(new Phonetic { Language = "au", Audio = AudioPath });
+                        phonetics.Add(new Phonetic { Language = "au", Audio = word_English_txt.Text.Trim() + "-au.wav" });
                     }
                     EnableSpeakers();
                 }
@@ -708,6 +709,7 @@ namespace tdic
             if (us != null)
             {
                 phonetics.Remove(us);
+                File.Delete(AudioFolder + us.Audio);
                 us_txt.Text = "";
                 us_speaker_btn.IsEnabled = false;
             }
@@ -719,6 +721,7 @@ namespace tdic
             if (au != null)
             {
                 phonetics.Remove(au);
+                File.Delete(AudioFolder + au.Audio);
                 ca_txt.Text = "";
                 ca_speaker_btn.IsEnabled = false;
             }
@@ -730,6 +733,7 @@ namespace tdic
             if (uk != null)
             {
                 phonetics.Remove(uk);
+                File.Delete(AudioFolder + uk.Audio);
                 uk_txt.Text = "";
                 uk_speaker_btn.IsEnabled = false;
             }
