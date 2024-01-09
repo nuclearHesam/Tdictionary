@@ -183,6 +183,7 @@ namespace tdic
 
             DefinitionCount_txt.Text = meaning.Definitions.Count.ToString();
             Definition_txt.Text = example_txt.Text = "";
+            pos_txt.SelectedIndex = 2;
 
             //
             if (meaning.Definitions.Count >= 1)
@@ -244,11 +245,11 @@ namespace tdic
                 if (!File.Exists(phonetic.Audio) && phonetic.Audio != null)
                 {
                     string[] audioname = phonetic.Audio.Split('/');
-                    string AudioPath =  audioname[6];
+                    string AudioPath = audioname[6];
 
                     if (!File.Exists(AudioPath))
                     {
-                        if (await AudioDownloadManager.DownloadAudio(phonetic.Audio,AudioFolder+ AudioPath))
+                        if (await AudioDownloadManager.DownloadAudio(phonetic.Audio, AudioFolder + AudioPath))
                         {
                             phonetic.Audio = AudioPath;
                         }
@@ -503,7 +504,7 @@ namespace tdic
 
             try
             {
-                var audioDirectory = AudioFolder + "\\"+ phonetics.Find(ph => ph.Language == language).Audio;
+                var audioDirectory = AudioFolder + "\\" + phonetics.Find(ph => ph.Language == language).Audio;
                 if (File.Exists(audioDirectory))
                 {
                     mediaPlayer.Open(new Uri(audioDirectory));
