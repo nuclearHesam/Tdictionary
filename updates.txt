@@ -1,5 +1,3 @@
-Set Start path for Saved Pictures
-Set Searched definition for Selected P.O.S => line 179
 Download Word Image => Image Gallary
 Decrease Add Word Size in 'Proxima Soft' Font
 Responsibilty for AddWord

@@ -10,7 +10,8 @@ using WordsListedModelView;
 using System.Windows.Documents;
 using System.Windows.Media;
 using static Tdictionary.Models.Setting;
-using System;
+using Tdictionary.Models;
+using System.Drawing;
 
 namespace tdic
 {
@@ -38,7 +39,7 @@ namespace tdic
                     MessageBoxLanguage = "English",
                 };
 
-                var Settings = new Settings { LanguageSettings = languageSettings  };
+                var Settings = new Settings { LanguageSettings = languageSettings, ThemeMode = true };
 
                 Serializer.WriteSettingJson(Settings);
             }
@@ -54,7 +55,7 @@ namespace tdic
 
             BindListBox();
 
-            SetLanaguageSetting();
+            SetSetting();
         }
 
         #region Toolbar
@@ -64,7 +65,7 @@ namespace tdic
             Setting setting = new();
             if (setting.ShowDialog() == true)
             {
-                SetLanaguageSetting();
+                SetSetting();
             }
         }
 
@@ -103,7 +104,7 @@ namespace tdic
                     string wordID = selectedWord.WordID;
                     using (UnitOfWork db = new())
                     {
-                       var word = db.WordsRepository.ReadWord(wordID);
+                        var word = db.WordsRepository.ReadWord(wordID);
                         var phonetics = db.WordsRepository.ReadPhonetics(wordID);
                         var meanings = db.WordsRepository.ReadMeanings(wordID);
                         List<Definitions> definitions = new();
@@ -195,53 +196,53 @@ namespace tdic
         private void PRONOUN_rbt_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton? radioButton = e.Source as RadioButton;
-                switch (radioButton.Name)
-                {
-                    case "PRONOUN_rbt":
-                        {
-                            SetWordByFilter("pronoun");
-                        }
-                        break;
-                    case "VERB_rbt":
-                        {
-                            SetWordByFilter("verb");
-                        }
-                        break;
-                    case "NOUN_rbt":
-                        {
-                            SetWordByFilter("noun");
-                        }
-                        break;
-                    case "ADJECTIVE_rbt":
-                        {
-                            SetWordByFilter("adjective");
-                        }
-                        break;
-                    case "ADVERB_rbt":
-                        {
-                            SetWordByFilter("adverb");
-                        }
-                        break;
-                    case "PREPOSITION_rbt":
-                        {
-                            SetWordByFilter("preposition");
-                        }
-                        break;
-                    case "CONJUNCTION_rbt":
-                        {
-                            SetWordByFilter("conjunction");
-                        }
-                        break;
-                    case "INTERJECTION_rbt":
-                        {
-                            SetWordByFilter("interjection");
-                        }
-                        break;
-                    default:
-                        {
+            switch (radioButton.Name)
+            {
+                case "PRONOUN_rbt":
+                    {
+                        SetWordByFilter("pronoun");
+                    }
+                    break;
+                case "VERB_rbt":
+                    {
+                        SetWordByFilter("verb");
+                    }
+                    break;
+                case "NOUN_rbt":
+                    {
+                        SetWordByFilter("noun");
+                    }
+                    break;
+                case "ADJECTIVE_rbt":
+                    {
+                        SetWordByFilter("adjective");
+                    }
+                    break;
+                case "ADVERB_rbt":
+                    {
+                        SetWordByFilter("adverb");
+                    }
+                    break;
+                case "PREPOSITION_rbt":
+                    {
+                        SetWordByFilter("preposition");
+                    }
+                    break;
+                case "CONJUNCTION_rbt":
+                    {
+                        SetWordByFilter("conjunction");
+                    }
+                    break;
+                case "INTERJECTION_rbt":
+                    {
+                        SetWordByFilter("interjection");
+                    }
+                    break;
+                default:
+                    {
 
-                        }
-                        break;
+                    }
+                    break;
             }
 
             void SetWordByFilter(string filter)
@@ -332,8 +333,8 @@ namespace tdic
             {
                 if (Language == "English")
                 {
-                    INTERJECTION_rbt.FontFamily = ADJECTIVE_rbt.FontFamily = CONJUNCTION_rbt.FontFamily = NOUN_rbt.FontFamily = PREPOSITION_rbt.FontFamily = VERB_rbt.FontFamily = ADVERB_rbt.FontFamily = PRONOUN_rbt.FontFamily = Help_btn.FontFamily = Setting_btn.FontFamily = FindResource("Proxima Medium") as FontFamily;
-                    Image_Gallery_btn.FontFamily = Translate_btn.FontFamily = Daily_Practice_btn.FontFamily = Daily_Course_btn.FontFamily = Words_btn.FontFamily = Add_new_Word_btn.FontFamily = FindResource("Proxima ExtraBold") as FontFamily;
+                    INTERJECTION_rbt.FontFamily = ADJECTIVE_rbt.FontFamily = CONJUNCTION_rbt.FontFamily = NOUN_rbt.FontFamily = PREPOSITION_rbt.FontFamily = VERB_rbt.FontFamily = ADVERB_rbt.FontFamily = PRONOUN_rbt.FontFamily = Help_btn.FontFamily = Setting_btn.FontFamily = FindResource("Proxima Medium") as System.Windows.Media.FontFamily;
+                    Image_Gallery_btn.FontFamily = Translate_btn.FontFamily = Daily_Practice_btn.FontFamily = Daily_Course_btn.FontFamily = Words_btn.FontFamily = Add_new_Word_btn.FontFamily = FindResource("Proxima ExtraBold") as System.Windows.Media.FontFamily;
 
                     Setting_btn.Content = "Setting";
                     Help_btn.Content = "Help";
@@ -354,8 +355,8 @@ namespace tdic
                 }
                 else if (languageSettings.ButtonsLanguage == "Persian")
                 {
-                    INTERJECTION_rbt.FontFamily = ADJECTIVE_rbt.FontFamily = CONJUNCTION_rbt.FontFamily = NOUN_rbt.FontFamily = PREPOSITION_rbt.FontFamily = VERB_rbt.FontFamily = ADVERB_rbt.FontFamily = PRONOUN_rbt.FontFamily = Help_btn.FontFamily = Setting_btn.FontFamily = FindResource("Vazir") as FontFamily;
-                    Image_Gallery_btn.FontFamily = Translate_btn.FontFamily = Daily_Practice_btn.FontFamily = Daily_Course_btn.FontFamily = Words_btn.FontFamily = Add_new_Word_btn.FontFamily = FindResource("Vazir Bold") as FontFamily;
+                    INTERJECTION_rbt.FontFamily = ADJECTIVE_rbt.FontFamily = CONJUNCTION_rbt.FontFamily = NOUN_rbt.FontFamily = PREPOSITION_rbt.FontFamily = VERB_rbt.FontFamily = ADVERB_rbt.FontFamily = PRONOUN_rbt.FontFamily = Help_btn.FontFamily = Setting_btn.FontFamily = FindResource("Vazir") as System.Windows.Media.FontFamily;
+                    Image_Gallery_btn.FontFamily = Translate_btn.FontFamily = Daily_Practice_btn.FontFamily = Daily_Course_btn.FontFamily = Words_btn.FontFamily = Add_new_Word_btn.FontFamily = FindResource("Vazir Bold") as System.Windows.Media.FontFamily;
 
                     Setting_btn.Content = "تنظیمات";
                     Help_btn.Content = "کمک";
@@ -380,13 +381,13 @@ namespace tdic
             {
                 if (Language == "English")
                 {
-                    txt_Search.FontFamily = Search_txb.FontFamily = FindResource("Proxima Medium") as FontFamily;
-                    
+                    txt_Search.FontFamily = Search_txb.FontFamily = FindResource("Proxima Medium") as System.Windows.Media.FontFamily;
+
                     Search_txb.Text = "Search:";
                 }
                 else if (languageSettings.TextBlockLanguage == "Persian")
                 {
-                    txt_Search.FontFamily = Search_txb.FontFamily = FindResource("Vazir") as FontFamily;
+                    txt_Search.FontFamily = Search_txb.FontFamily = FindResource("Vazir") as System.Windows.Media.FontFamily;
 
                     Search_txb.Text = "جست و جو:";
                 }
@@ -405,10 +406,57 @@ namespace tdic
             }
         }
 
-        private void SetLanaguageSetting()
+        void ChangeTheme(bool Theme)
         {
-            var Settingslang = Serializer.ReadSettingJson();
-            ChangeLanguageSetting(Settingslang.LanguageSettings);
+            if (Theme)
+            {
+                stc_Titlebar.Background = System.Windows.Media.Brushes.White;
+                btn_Close.Foreground = System.Windows.Media.Brushes.Black;
+            }
+            else
+            {
+                stc_Titlebar.Background = System.Windows.Media.Brushes.Black;
+            }
         }
+
+        private void SetSetting()
+        {
+            var setting = Serializer.ReadSettingJson();
+            ChangeLanguageSetting(setting.LanguageSettings);
+            ChangeTheme(setting.ThemeMode);
+        }
+
+        #region Title Bar
+
+        private void btn_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_Maximize_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+        }
+
+        private void btn_Minimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void StackPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        #endregion
+
+
     }
 }

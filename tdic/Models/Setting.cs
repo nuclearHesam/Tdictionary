@@ -15,6 +15,7 @@ namespace Tdictionary.Models
         public class Settings
         {
             public LanguageSettings LanguageSettings { get; set; }
+            public bool ThemeMode { get; set; } // true == whitemode, false == darkmode
         }
     }
 }
